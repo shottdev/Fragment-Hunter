@@ -11,8 +11,8 @@ grav = .2;
 
 input = function()
 {
-    right = keyboard_check(vk_right) or keyboard_check(ord("A"));
-    left = keyboard_check(vk_left) or keyboard_check(ord("D"));
+    right = keyboard_check(vk_right) or keyboard_check(ord("D"));
+    left = keyboard_check(vk_left) or keyboard_check(ord("A"));
     jump = keyboard_check(vk_space) or keyboard_check(vk_up) or keyboard_check(ord("W"));
 }
 
