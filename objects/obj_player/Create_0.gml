@@ -13,7 +13,7 @@ input = function()
 {
     right = keyboard_check(vk_right) or keyboard_check(ord("D"));
     left = keyboard_check(vk_left) or keyboard_check(ord("A"));
-    jump = keyboard_check(vk_space) or keyboard_check(vk_up) or keyboard_check(ord("W"));
+    jump = keyboard_check(vk_space) or keyboard_check(vk_up);
 }
 
 ground_check = function()
@@ -37,6 +37,11 @@ move = function()
     }
     else {
     	velv += grav;
+        
+        if (place_meeting(x, y - 1, obj_collider) && velv < 0)
+        {
+            velv = 0;
+        }
     }
 }
 
