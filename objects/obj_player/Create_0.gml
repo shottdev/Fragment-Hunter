@@ -2,19 +2,48 @@
 // Você pode escrever seu código neste editor
 
 
+#region variáveis
+#region andar
+//velocidade horizontal
 velh = 0;
+//velocidade máxima horizontal (velocidade que ele se move)
 max_velh = 1.5;
+#endregion andar
+
+#region pulo e gravidade
+//velocidade vertical
 velv = 0;
+//velocidade máxima vertical (força do pulo)
 max_velv = 3;
+//gravidade
 grav = .2;
+//contador de pulos
 jump_counter = 0;
+#endregion pulo e gravidade
+
+#region dash
+//duraçao do dash (em frames)
+dash_duration = 0;
+//direçao do dash (1 - frente, -1 - trás)
+dash_dir = 1;
+//velocidade do dash
+dash_speed = 5;
+
+//timer do afterimage
+timer_afterimage = 0;
+//delay afterimage
+delay_afterimage = 2;
+#endregion dash
+
+#endregion variáveis
 
 
 input = function()
 {
     right = keyboard_check(vk_right) or keyboard_check(ord("D"));
     left = keyboard_check(vk_left) or keyboard_check(ord("A"));
-    jump = keyboard_check_pressed(vk_space) or keyboard_check_pressed(vk_up);
+    jump = keyboard_check_pressed(vk_space);
+    dash = keyboard_check_pressed(vk_shift);
 }
 
 ground_check = function()
@@ -53,11 +82,32 @@ move = function()
             velv = 0;
         }
     }
+    
+    if (dash && dash_duration == 0)
+    {
+        dash_duration = 10;
+    }
+    
+    if (dash_duration > 0)
+    {
+        var _vel = dash_speed * dash_dir;
+        dash_duration--;
+        
+        if (!place_meeting(x + _vel, y, obj_collider))
+        {
+            velh = _vel;
+            velv = 0;
+        }
+        else {
+        	velh = 0;
+            dash_duration = 0;
+        }
+    }
 }
 
 apply_speed = function()
 {
-    move_and_collide(velh, 0, obj_collider, 12);
+    move_and_collide(velh, 0, obj_collider, 24);
     move_and_collide(0, velv, obj_collider, 24);
 }
 

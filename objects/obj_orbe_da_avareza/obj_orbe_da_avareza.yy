@@ -6,8 +6,8 @@
   "name":"obj_orbe_da_avareza",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Itens",
+    "path":"folders/Objects/Itens.yy",
   },
   "parentObjectId":null,
   "persistent":false,
