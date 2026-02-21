@@ -3,9 +3,9 @@
 
 
 velh = 0;
-max_velh = 2;
+max_velh = 1.5;
 velv = 0;
-max_velv = 3;
+max_velv = 3.4;
 grav = .2;
 
 
