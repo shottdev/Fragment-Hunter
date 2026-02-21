@@ -45,6 +45,7 @@
     {"id":{"name":"rm_game","path":"rooms/rm_game/rm_game.yy",},},
     {"id":{"name":"swap_sprite","path":"scripts/swap_sprite/swap_sprite.yy",},},
     {"id":{"name":"spr_collider","path":"sprites/spr_collider/spr_collider.yy",},},
+    {"id":{"name":"spr_fragmento_de_espelho_branco","path":"sprites/spr_fragmento_de_espelho_branco/spr_fragmento_de_espelho_branco.yy",},},
     {"id":{"name":"spr_orbe_da_avareza","path":"sprites/spr_orbe_da_avareza/spr_orbe_da_avareza.yy",},},
     {"id":{"name":"spr_player_double_jump","path":"sprites/spr_player_double_jump/spr_player_double_jump.yy",},},
     {"id":{"name":"spr_player_idle","path":"sprites/spr_player_idle/spr_player_idle.yy",},},
