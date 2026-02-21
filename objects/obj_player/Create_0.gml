@@ -51,7 +51,9 @@ input = function()
 
 ground_check = function()
 {
-    ground = place_meeting(x, y + 1, obj_collider);
+    //ground = place_meeting(x, y + 1, obj_collider);
+    tile = layer_tilemap_get_id("tl_ground");
+    ground = place_meeting(x, y + 1, tile);
 }
 
 move = function()
@@ -73,6 +75,7 @@ move = function()
         dash_counter = 0;
     }
     else {
+        if (jump_counter == 0) jump_counter = 1;
         if (jump && jump_counter < 2)
         {
             velv = -(max_velv + 0.4); 
@@ -82,7 +85,7 @@ move = function()
     	    velv += grav;
         }
             
-        if (place_meeting(x, y - 1, obj_collider) && velv < 0)
+        if (place_meeting(x, y - 1, tile) && velv < 0)
         {
             velv = 0;
         }
@@ -99,7 +102,7 @@ move = function()
         var _vel = dash_speed * dash_dir;
         dash_duration--;
         
-        if (!place_meeting(x + _vel, y, obj_collider))
+        if (!place_meeting(x + _vel, y, tile))
         {
             velh = _vel;
             velv = 0;
@@ -113,8 +116,8 @@ move = function()
 
 apply_speed = function()
 {
-    move_and_collide(velh, 0, obj_collider, 24);
-    move_and_collide(0, velv, obj_collider, 24);
+    move_and_collide(velh, 0, tile, 24);
+    move_and_collide(0, velv, tile, 24);
 }
 
 

@@ -30,7 +30,7 @@ if (dash_duration > 0)
     
     if (timer_afterimage >= delay_afterimage)
     {
-        var _phantom = instance_create_layer(x, y, "Instances", obj_player_afterimage);
+        var _phantom = instance_create_layer(x, y, "player", obj_player_afterimage);
         _phantom.sprite_index = sprite_index;
         _phantom.image_index = image_index;
         _phantom.image_xscale = image_xscale;
