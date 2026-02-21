@@ -5,7 +5,7 @@
 velh = 0;
 max_velh = 1.5;
 velv = 0;
-max_velv = 3.4;
+max_velv = 3;
 grav = .2;
 jump_counter = 0;
 
