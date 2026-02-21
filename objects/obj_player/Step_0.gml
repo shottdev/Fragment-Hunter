@@ -7,3 +7,5 @@ ground_check();
 move();
 
 state();
+
+if (velh != 0) image_xscale = sign(velh);

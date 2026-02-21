@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"swap_sprite",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"swap_sprite",
+  "parent":{
+    "name":"Misc",
+    "path":"folders/Scripts/Misc.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

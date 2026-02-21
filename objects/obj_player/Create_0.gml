@@ -49,6 +49,7 @@ apply_speed = function()
 idle_state = function()
 {
     apply_speed();
+    swap_sprite(spr_player_idle);
     
     if (right != left)
     {
@@ -64,6 +65,7 @@ idle_state = function()
 move_state = function()
 {
     apply_speed();
+    swap_sprite(spr_player_walk);
     
     if (velh == 0)
     {
