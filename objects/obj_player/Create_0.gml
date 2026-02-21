@@ -33,6 +33,9 @@ dash_speed = 5;
 timer_afterimage = 0;
 //delay afterimage
 delay_afterimage = 2;
+
+//contador de dash
+dash_counter = 0;
 #endregion dash
 
 #endregion variáveis
@@ -66,6 +69,8 @@ move = function()
             velv = -max_velv;
             jump_counter++;
         }
+        
+        dash_counter = 0;
     }
     else {
         if (jump && jump_counter < 2)
@@ -83,9 +88,10 @@ move = function()
         }
     }
     
-    if (dash && dash_duration == 0)
+    if (dash && dash_duration == 0 && dash_counter == 0)
     {
         dash_duration = 10;
+        dash_counter++;
     }
     
     if (dash_duration > 0)
