@@ -27,7 +27,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_collider",
+    "path":"sprites/spr_collider/spr_collider.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }
