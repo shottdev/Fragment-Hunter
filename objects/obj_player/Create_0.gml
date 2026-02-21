@@ -28,6 +28,7 @@ move = function()
     if (ground)
     {
         velv = 0;
+        y = round(y);
         
         if (jump)
         {
