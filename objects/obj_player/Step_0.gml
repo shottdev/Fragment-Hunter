@@ -4,5 +4,6 @@
 
 input();
 ground_check();
-move()
-apply_speed();
+move();
+
+state();

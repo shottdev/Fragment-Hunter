@@ -5,7 +5,7 @@
 velh = 0;
 max_velh = 2;
 velv = 0;
-max_velv = 2.5;
+max_velv = 3;
 grav = .2;
 
 
@@ -44,3 +44,47 @@ apply_speed = function()
     move_and_collide(velh, 0, obj_collider, 12);
     move_and_collide(0, velv, obj_collider, 24);
 }
+
+
+idle_state = function()
+{
+    apply_speed();
+    
+    if (right != left)
+    {
+        state = move_state;
+    }
+    
+    if (jump)
+    {
+        state = jump_state;
+    }
+}
+
+move_state = function()
+{
+    apply_speed();
+    
+    if (velh == 0)
+    {
+        state = idle_state;
+    }
+    
+    if (jump)
+    {
+        state = jump_state;
+    }
+}
+
+jump_state = function()
+{
+    apply_speed();
+    
+    if (ground)
+    {
+        state = idle_state;
+    }
+}
+
+
+state = idle_state;
