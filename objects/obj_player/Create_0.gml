@@ -49,7 +49,7 @@ apply_speed = function()
 idle_state = function()
 {
     apply_speed();
-    swap_sprite(spr_player_idle);
+    swap_sprite(spr_player_jump_up);
     
     if (right != left)
     {
@@ -85,6 +85,14 @@ jump_state = function()
     if (ground)
     {
         state = idle_state;
+    }
+    
+    if (velv > 0)
+    {
+        swap_sprite(spr_player_jump_down);
+    }
+    else {
+    	swap_sprite(spr_player_jump_up);
     }
 }
 

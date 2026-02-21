@@ -42,6 +42,8 @@
     {"id":{"name":"swap_sprite","path":"scripts/swap_sprite/swap_sprite.yy",},},
     {"id":{"name":"spr_collider","path":"sprites/spr_collider/spr_collider.yy",},},
     {"id":{"name":"spr_player_idle","path":"sprites/spr_player_idle/spr_player_idle.yy",},},
+    {"id":{"name":"spr_player_jump_down","path":"sprites/spr_player_jump_down/spr_player_jump_down.yy",},},
+    {"id":{"name":"spr_player_jump_up","path":"sprites/spr_player_jump_up/spr_player_jump_up.yy",},},
     {"id":{"name":"spr_player_walk","path":"sprites/spr_player_walk/spr_player_walk.yy",},},
   ],
   "resourceType":"GMProject",
