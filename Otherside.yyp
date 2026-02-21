@@ -45,6 +45,7 @@
     {"id":{"name":"obj_orbe_da_avareza","path":"objects/obj_orbe_da_avareza/obj_orbe_da_avareza.yy",},},
     {"id":{"name":"obj_player_afterimage","path":"objects/obj_player_afterimage/obj_player_afterimage.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
+    {"id":{"name":"rm_fase_teste","path":"rooms/rm_fase_teste/rm_fase_teste.yy",},},
     {"id":{"name":"rm_game","path":"rooms/rm_game/rm_game.yy",},},
     {"id":{"name":"swap_sprite","path":"scripts/swap_sprite/swap_sprite.yy",},},
     {"id":{"name":"spr_collider","path":"sprites/spr_collider/spr_collider.yy",},},
@@ -61,6 +62,7 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
+    {"roomId":{"name":"rm_fase_teste","path":"rooms/rm_fase_teste/rm_fase_teste.yy",},},
     {"roomId":{"name":"rm_game","path":"rooms/rm_game/rm_game.yy",},},
   ],
   "templateType":"game",
