@@ -5,7 +5,7 @@
 velh = 0;
 max_velh = 1.5;
 velv = 0;
-max_velv = 3.4;
+max_velv = 3;
 grav = .2;
 jump_counter = 0;
 
@@ -41,10 +41,11 @@ move = function()
     else {
         if (jump && jump_counter < 2)
         {
-           velv = -max_velv; 
+            velv = -(max_velv + 0.4); 
+            jump_counter++;
         }
         else {
-    	   velv += grav;
+    	    velv += grav;
         }
             
         if (place_meeting(x, y - 1, obj_collider) && velv < 0)
