@@ -177,5 +177,4 @@ jump_state = function()
 }
 
 
-
 state = idle_state;
