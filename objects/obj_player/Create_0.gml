@@ -47,6 +47,7 @@ input = function()
     left = keyboard_check(vk_left) or keyboard_check(ord("A"));
     jump = keyboard_check_pressed(vk_space);
     dash = keyboard_check_pressed(vk_shift);
+    
 }
 
 ground_check = function()
