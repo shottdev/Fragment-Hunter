@@ -69,6 +69,7 @@
     {"id":{"name":"spr_player_jump_down","path":"sprites/spr_player_jump_down/spr_player_jump_down.yy",},},
     {"id":{"name":"spr_player_jump_up","path":"sprites/spr_player_jump_up/spr_player_jump_up.yy",},},
     {"id":{"name":"spr_player_walk","path":"sprites/spr_player_walk/spr_player_walk.yy",},},
+    {"id":{"name":"spr_purple_mushroom","path":"sprites/spr_purple_mushroom/spr_purple_mushroom.yy",},},
     {"id":{"name":"spr_tileset","path":"sprites/spr_tileset/spr_tileset.yy",},},
     {"id":{"name":"tl_tileset","path":"tilesets/tl_tileset/tl_tileset.yy",},},
   ],
