@@ -54,7 +54,7 @@ ground_check = function()
 {
     //ground = place_meeting(x, y + 1, obj_collider);
     tile = layer_tilemap_get_id("tl_ground");
-    ground = place_meeting(x, y + 1, tile);
+    ground = place_meeting(x, y + 1, tile) or place_meeting(x, y + 1, obj_collider);
 }
 
 move = function()
@@ -86,7 +86,7 @@ move = function()
     	    velv += grav;
         }
             
-        if (place_meeting(x, y - 1, tile) && velv < 0)
+        if (place_meeting(x, y - 1, tile) or place_meeting(x, y - 1, obj_collider) && velv < 0)
         {
             velv = 0;
         }
@@ -103,7 +103,7 @@ move = function()
         var _vel = dash_speed * dash_dir;
         dash_duration--;
         
-        if (!place_meeting(x + _vel, y, tile))
+        if (!place_meeting(x + _vel, y, tile) or place_meeting(x + _vel, y, obj_collider))
         {
             velh = _vel;
             velv = 0;
