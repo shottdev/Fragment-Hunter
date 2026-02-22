@@ -3,3 +3,9 @@
 
 
 global.fragmento = false;
+global.destino = noone;
+
+function goto_destiny()
+{
+    room_goto(global.destino);
+}

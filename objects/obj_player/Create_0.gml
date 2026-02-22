@@ -38,6 +38,8 @@ delay_afterimage = 2;
 dash_counter = 0;
 #endregion dash
 
+seq_id = -1;
+
 #endregion variáveis
 
 
@@ -200,6 +202,26 @@ dash_state = function()
     if (dash_duration <= 0)
     {
         state = idle_state;
+    }
+}
+
+pickup_state = function()
+{
+    var _view_w = camera_get_view_width(view_camera[0]);
+    var _view_h = camera_get_view_height(view_camera[0]);
+    
+    var _target_w = 145;
+    var _target_h = 75;
+    
+    _view_w = lerp(_view_w, _target_w, 0.1);
+    _view_h = lerp(_view_h, _target_h, 0.1);
+    
+    camera_set_view_size(view_camera[0], _view_w, _view_h);
+    
+    if (_view_w <= 147 && !layer_sequence_exists("sq_transicao", seq_id))
+    {
+        seq_id = layer_sequence_create("sq_transicao", 0, 0, sq_transition1);
+        global.destino = rm_fase_teste;
     }
 }
 

@@ -8,7 +8,7 @@ move();
 
 state();
 
-if (velh != 0) image_xscale = sign(velh);
+if (velh != 0 && state != pickup_state) image_xscale = sign(velh);
     
 switch (sign(velh))
 {
