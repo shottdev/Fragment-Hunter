@@ -7,7 +7,7 @@
 //velocidade horizontal
 velh = 0;
 //velocidade máxima horizontal (velocidade que ele se move)
-max_velh = 1.5;
+max_velh = 1;
 #endregion andar
 
 #region pulo e gravidade
