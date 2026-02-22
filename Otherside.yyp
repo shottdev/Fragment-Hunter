@@ -40,7 +40,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.2.213",
+    "IDEVersion":"2024.14.3.217",
   },
   "name":"Otherside",
   "resources":[
@@ -52,7 +52,7 @@
     {"id":{"name":"obj_player_afterimage","path":"objects/obj_player_afterimage/obj_player_afterimage.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"rm_fase_teste","path":"rooms/rm_fase_teste/rm_fase_teste.yy",},},
-    {"id":{"name":"rm_game","path":"rooms/rm_game/rm_game.yy",},},
+    {"id":{"name":"rm_intro","path":"rooms/rm_intro/rm_intro.yy",},},
     {"id":{"name":"scr_utilites","path":"scripts/scr_utilites/scr_utilites.yy",},},
     {"id":{"name":"swap_sprite","path":"scripts/swap_sprite/swap_sprite.yy",},},
     {"id":{"name":"spr_bick","path":"sprites/spr_bick/spr_bick.yy",},},
@@ -71,8 +71,8 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
+    {"roomId":{"name":"rm_intro","path":"rooms/rm_intro/rm_intro.yy",},},
     {"roomId":{"name":"rm_fase_teste","path":"rooms/rm_fase_teste/rm_fase_teste.yy",},},
-    {"roomId":{"name":"rm_game","path":"rooms/rm_game/rm_game.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
