@@ -92,7 +92,7 @@ move = function()
     	    velv += grav;
         }
             
-        if (place_meeting(x, y - 1, tile) or place_meeting(x, y - 1, obj_collider) && velv < 0)
+        if (place_meeting(x, y - 1, tile) && velv < 0)
         {
             velv = 0;
         }
