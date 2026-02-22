@@ -123,7 +123,7 @@ move = function()
 
 apply_speed = function()
 {
-    move_and_collide(velh, 0, tile, 24);
+    move_and_collide(velh, 0, tile and obj_collider, 24);
     move_and_collide(0, velv, tile, 24);
     
     if (velh != 0) image_xscale = sign(velh);
