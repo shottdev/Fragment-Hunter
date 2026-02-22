@@ -141,6 +141,11 @@ idle_state = function()
     {
         state = jump_state;
     }
+    
+    if (dash)
+    {
+        state = dash_state;
+    }
 }
 
 move_state = function()
@@ -157,6 +162,11 @@ move_state = function()
     {
         state = jump_state;
     }
+    
+    if (dash)
+    {
+        state = dash_state;
+    }
 }
 
 jump_state = function()
@@ -172,6 +182,22 @@ jump_state = function()
     }
     
     if (ground)
+    {
+        state = idle_state;
+    }
+    
+    if (dash)
+    {
+        state = dash_state;
+    }
+}
+
+dash_state = function()
+{
+    apply_speed();
+    swap_sprite(spr_player_dash);
+    
+    if (dash_duration <= 0)
     {
         state = idle_state;
     }
