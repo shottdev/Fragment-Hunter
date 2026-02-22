@@ -2,5 +2,4 @@
 // Você pode escrever seu código neste editor
 
 
-//image_blend = c_blue;
-_y = y + 4;
+
