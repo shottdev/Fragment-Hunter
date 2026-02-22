@@ -72,6 +72,8 @@
     {"id":{"name":"spr_player_idle","path":"sprites/spr_player_idle/spr_player_idle.yy",},},
     {"id":{"name":"spr_player_jump_down","path":"sprites/spr_player_jump_down/spr_player_jump_down.yy",},},
     {"id":{"name":"spr_player_jump_up","path":"sprites/spr_player_jump_up/spr_player_jump_up.yy",},},
+    {"id":{"name":"spr_player_throw1","path":"sprites/spr_player_throw1/spr_player_throw1.yy",},},
+    {"id":{"name":"spr_player_throw2","path":"sprites/spr_player_throw2/spr_player_throw2.yy",},},
     {"id":{"name":"spr_player_walk","path":"sprites/spr_player_walk/spr_player_walk.yy",},},
     {"id":{"name":"spr_purple_mushroom","path":"sprites/spr_purple_mushroom/spr_purple_mushroom.yy",},},
     {"id":{"name":"spr_quad","path":"sprites/spr_quad/spr_quad.yy",},},

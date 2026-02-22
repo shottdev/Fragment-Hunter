@@ -2,4 +2,7 @@
 // Você pode escrever seu código neste editor
 
 
-state = fragment_pickup_state;
+//timer = 0;
+//delay = noone;
+//
+//force = noone;

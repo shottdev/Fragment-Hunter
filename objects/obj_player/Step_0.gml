@@ -8,7 +8,6 @@ move();
 
 state();
 
-if (velh != 0 && state != pickup_state) image_xscale = sign(velh);
     
 switch (sign(velh))
 {
@@ -37,3 +36,5 @@ if (dash_duration > 0)
         timer_afterimage = 0;
     }
 }
+
+throw_force = clamp(throw_force, 2, 5);

@@ -39,6 +39,8 @@ dash_counter = 0;
 #endregion dash
 
 seq_id = -1;
+throw_force = 2;
+orb = true;
 
 #endregion variáveis
 
@@ -49,6 +51,7 @@ input = function()
     left = keyboard_check(vk_left) or keyboard_check(ord("A"));
     jump = keyboard_check_pressed(vk_space);
     dash = keyboard_check_pressed(vk_shift) or keyboard_check_pressed(ord("C"));
+    attack = mouse_check_button_pressed(mb_left);
     
 }
 
@@ -76,6 +79,7 @@ move = function()
         }
         
         dash_counter = 0;
+        
     }
     else {
         if (jump_counter == 0) jump_counter = 1;
@@ -121,6 +125,8 @@ apply_speed = function()
 {
     move_and_collide(velh, 0, tile, 24);
     move_and_collide(0, velv, tile, 24);
+    
+    if (velh != 0) image_xscale = sign(velh);
 }
 
 
@@ -147,6 +153,11 @@ idle_state = function()
     if (dash)
     {
         state = dash_state;
+    }
+    
+    if (attack && orb)
+    {
+        state = prepare_throw_state;
     }
 }
 
@@ -205,7 +216,7 @@ dash_state = function()
     }
 }
 
-pickup_state = function()
+fragment_pickup_state = function()
 {
     var _view_w = camera_get_view_width(view_camera[0]);
     var _view_h = camera_get_view_height(view_camera[0]);
@@ -222,6 +233,50 @@ pickup_state = function()
     {
         seq_id = layer_sequence_create("sq_transicao", 0, 0, sq_transition1);
         global.destino = rm_fase_teste;
+        global.fragmento = true;
+    }
+}
+
+prepare_throw_state = function()
+{
+    swap_sprite(spr_player_throw1);
+    
+    if (image_index >= image_number - 1)
+    {
+        if (mouse_check_button(mb_left))
+        {
+            image_index = image_number - 1;
+            throw_force += 0.1;
+            
+            if (mouse_check_button_released(mb_left))
+            {
+                state = throw_state;
+            }
+        }
+        else {
+        	state = throw_state;
+        }
+    }
+}
+
+throw_state = function()
+{
+    swap_sprite(spr_player_throw2);
+    
+    if (image_index >= image_number - 1)
+    {
+        var _orb = instance_create_layer(x, y - 8, "items", obj_orbe_da_avareza);
+        _orb.speed = throw_force;
+        _orb.direction = point_direction(x, y - 8, mouse_x, mouse_y);
+        _orb.image_xscale = 0.6;
+        _orb.image_yscale = 0.6;
+        //_orb.delay = 60 * 1.5;
+        //_orb.force = throw_force + 0.8;
+        //orb = false;
+        
+        state = idle_state;
+        
+        throw_force = 2;
     }
 }
 
