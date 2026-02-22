@@ -14,11 +14,13 @@ switch (sign(velh))
     case -1:
     {
         dash_dir = -1;
+        orb_dir = 180
     }
         break;
     case 1:
     {
         dash_dir = 1;
+        orb_dir = 0;
     }
         break;
 }
@@ -38,3 +40,10 @@ if (dash_duration > 0)
 }
 
 throw_force = clamp(throw_force, 2, 5);
+
+
+if (!orb)
+{
+    obj_orbe_da_avareza.dest_x = x;
+    obj_orbe_da_avareza.dest_y = y - 8;
+}

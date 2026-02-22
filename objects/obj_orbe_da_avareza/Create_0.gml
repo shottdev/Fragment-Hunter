@@ -6,3 +6,7 @@
 //delay = noone;
 //
 //force = noone;
+dest_x = noone;
+dest_y = noone;
+
+state = "ir";

@@ -3,5 +3,5 @@
 
 
 
-drop(3);
+if (instance_exists(obj_player) && obj_player.state != obj_player.fragment_pickup_state) drop(3);
 
