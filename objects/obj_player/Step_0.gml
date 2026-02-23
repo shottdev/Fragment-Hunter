@@ -39,7 +39,7 @@ if (dash_duration > 0)
     }
 }
 
-throw_force = clamp(throw_force, 2, 5);
+throw_force = clamp(throw_force, 3, 5);
 
 
 if (!orb)

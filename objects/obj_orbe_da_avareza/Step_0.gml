@@ -9,13 +9,21 @@ if (place_meeting(x, y, _tile))
 }
 
 
+if (state == "ir")
+{
+    var _amount = 0.05;
+    
+    _amount += 0.05;
+    y += _amount;
+}
+
 if (state == "voltar")
 {
-    x = lerp(x, dest_x, 0.4);
-    y = lerp(y, dest_y, 0.4);
     
     if (instance_exists(obj_player))
     {
+        
+        direction = point_direction(x, y, obj_player.x, obj_player.y - 8);
         if (point_distance(x, y, obj_player.x, obj_player.y) < 10)
         {
             instance_destroy();

@@ -39,7 +39,7 @@ dash_counter = 0;
 #endregion dash
 
 seq_id = -1;
-throw_force = 2;
+throw_force = 3;
 orb = true;
 orb_dir = 0;
 hitbox = noone;
@@ -123,8 +123,6 @@ move = function()
         }
     }
     
-    if (velh != 0) image_xscale = sign(velh);
-    
     
     if (place_meeting(x + velh, y, obj_collider))
     {
@@ -136,6 +134,8 @@ apply_speed = function()
 {
     move_and_collide(velh, 0, tile, 24);
     move_and_collide(0, velv, tile, 24);
+    
+    if (velh != 0) image_xscale = sign(velh);
 }
 
 
@@ -280,7 +280,7 @@ throw_state = function()
 {
     swap_sprite(spr_player_throw2);
     
-    if (image_index >= image_number - 1)
+    if (image_index >= 4)
     {
         var _orb = instance_create_layer(x, y - 8, "items", obj_orbe_da_avareza);
         _orb.speed = throw_force;
@@ -293,7 +293,7 @@ throw_state = function()
         
         state = idle_state;
         
-        throw_force = 2;
+        throw_force = 3;
     }
 }
 
