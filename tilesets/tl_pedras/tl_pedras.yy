@@ -1,10 +1,10 @@
 {
   "$GMTileSet":"v1",
-  "%Name":"tl_tileset",
+  "%Name":"tl_pedras",
   "autoTileSets":[
     {"$GMAutoTileSet":"","%Name":"autotile_1","closed_edge":false,"name":"autotile_1","resourceType":"GMAutoTileSet","resourceVersion":"2.0","tiles":[
-        34,53,52,39,36,60,38,61,37,55,44,62,54,46,45,24,33,75,59,40,18,74,43,56,35,90,42,57,50,91,58,41,32,21,
-        17,72,19,73,51,89,49,88,16,20,48,22,23,
+        8,142,133,190,61,181,191,207,70,215,180,182,214,183,206,179,304,186,210,189,235,184,185,188,285,211,
+        187,213,355,209,208,212,317,315,232,220,237,221,357,245,352,244,293,314,341,316,178,
       ],},
   ],
   "macroPageTiles":{
@@ -12,8 +12,8 @@
     "SerialiseWidth":0,
     "TileSerialiseData":[],
   },
-  "name":"tl_tileset",
-  "out_columns":16,
+  "name":"tl_pedras",
+  "out_columns":20,
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
@@ -23,8 +23,8 @@
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
   "spriteId":{
-    "name":"spr_tileset",
-    "path":"sprites/spr_tileset/spr_tileset.yy",
+    "name":"spr_pedras",
+    "path":"sprites/spr_pedras/spr_pedras.yy",
   },
   "spriteNoExport":false,
   "textureGroupId":{
@@ -39,5 +39,5 @@
   "tileWidth":16,
   "tilexoff":0,
   "tileyoff":0,
-  "tile_count":256,
+  "tile_count":384,
 }

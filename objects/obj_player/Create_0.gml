@@ -136,6 +136,7 @@ apply_speed = function()
     move_and_collide(0, velv, tile, 24);
     
     if (velh != 0) image_xscale = sign(velh);
+        
 }
 
 
@@ -178,6 +179,8 @@ idle_state = function()
     {
         state = returning_state;
     }
+    
+    if (keyboard_check_pressed(ord("F"))) state = throw_portal_state;
 }
 
 move_state = function()
@@ -204,6 +207,8 @@ move_state = function()
     {
         state = jump_state;
     }
+    var _spd_bg = 0.8;
+    layer_hspeed("bg1", _spd_bg);
 }
 
 jump_state = function()
@@ -374,13 +379,39 @@ falling_state = function()
 returning_state = function()
 {
     swap_sprite_reversed(spr_player_falling);
-    image_speed = -1;
     
     if (image_index <= 1)
     {
         state = idle_state;
         global.teleporting = false;
     }
+}
+
+prepare_throw_portal_state = function()
+{
+    swap_sprite(spr_player_throw1);
+    
+    if (image_index >= image_number - 1)
+    {
+        state = throw_portal_state;
+    }
+}
+
+throw_portal_state = function()
+{
+    swap_sprite(spr_player_throw2);
+    
+    if (image_index >= image_number - 1)
+    {
+        var _tp = instance_create_layer(x + 15 * image_xscale, y, "teleporter", obj_teleporter1);
+        state = idle_state;
+    }
+}
+
+
+if (global.teleporting && instance_number(obj_teleporter2) == 0)
+{
+    instance_create_layer(x, y, "teleporter", obj_teleporter2);
 }
 
 

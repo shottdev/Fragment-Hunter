@@ -29,7 +29,7 @@
   "properties":[
     {"$GMObjectProperty":"v2","%Name":"destino","filters":[
         "GMRoom",
-      ],"listItems":[],"multiselect":false,"name":"destino","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"rm_fase_teste1","varType":5,},
+      ],"listItems":[],"multiselect":false,"name":"destino","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"rm_intro","path":"rooms/rm_intro/rm_intro.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"rm_intro","varType":5,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

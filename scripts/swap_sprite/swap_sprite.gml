@@ -9,6 +9,7 @@ function swap_sprite(_sprite){
     {
         image_index = 0;
         sprite_index = _sprite;
+        image_speed = 1;
     }
 }
 
@@ -19,5 +20,6 @@ function swap_sprite_reversed(_sprite){
     {
         image_index = sprite_get_number(_sprite) - 1;
         sprite_index = _sprite;
+        image_speed = -1;
     }
 }
