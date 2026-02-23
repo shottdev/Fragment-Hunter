@@ -2,6 +2,6 @@
 // Você pode escrever seu código neste editor
 
 
-image_alpha = 0.6;
+image_alpha = 0.5;
 
 terminou = false;

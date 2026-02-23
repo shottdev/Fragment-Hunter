@@ -199,6 +199,11 @@ move_state = function()
     {
         state = dash_state;
     }
+    
+    if (!ground)
+    {
+        state = jump_state;
+    }
 }
 
 jump_state = function()
