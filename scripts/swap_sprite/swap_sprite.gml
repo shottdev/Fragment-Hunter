@@ -11,3 +11,13 @@ function swap_sprite(_sprite){
         sprite_index = _sprite;
     }
 }
+
+/// Funçao para trocar a sprite e colocar no frame final (para animacoes invertidas)
+/// @param sprite       A sprite que deseja que o objeto (player) troque
+function swap_sprite_reversed(_sprite){
+    if (sprite_index != _sprite)
+    {
+        image_index = sprite_get_number(_sprite) - 1;
+        sprite_index = _sprite;
+    }
+}

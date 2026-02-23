@@ -9,14 +9,6 @@ if (place_meeting(x, y, _tile))
 }
 
 
-if (state == "ir")
-{
-    var _amount = 0.05;
-    
-    _amount += 0.05;
-    y += _amount;
-}
-
 if (state == "voltar")
 {
     

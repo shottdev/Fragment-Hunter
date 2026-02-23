@@ -164,14 +164,19 @@ idle_state = function()
         state = dash_state;
     }
     
-    if (attack && global.fragmento)
+    if (attack && global.fragmento && orb == true)
     {
         state = prepare_attack_state;
     }
     
-    if (attack2 && global.fragmento && orb = true)
+    if (attack2 && global.fragmento && orb == true)
     {
         state = prepare_throw_state;
+    }
+    
+    if (global.teleporting)
+    {
+        state = returning_state;
     }
 }
 
@@ -347,6 +352,29 @@ attack_state = function()
             hitbox = noone;
         }
         state = idle_state;
+    }
+}
+
+
+falling_state = function()
+{
+    swap_sprite(spr_player_falling);
+    
+    if (image_index >= image_number - 1)
+    {
+        room_goto(global.tp_destiny);
+    }
+}
+
+returning_state = function()
+{
+    swap_sprite_reversed(spr_player_falling);
+    image_speed = -1;
+    
+    if (image_index <= 1)
+    {
+        state = idle_state;
+        global.teleporting = false;
     }
 }
 
