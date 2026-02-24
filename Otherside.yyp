@@ -75,6 +75,7 @@
     {"id":{"name":"spr_hitbox","path":"sprites/spr_hitbox/spr_hitbox.yy",},},
     {"id":{"name":"spr_mushroom","path":"sprites/spr_mushroom/spr_mushroom.yy",},},
     {"id":{"name":"spr_orbe_da_avareza","path":"sprites/spr_orbe_da_avareza/spr_orbe_da_avareza.yy",},},
+    {"id":{"name":"spr_pedras_outline","path":"sprites/spr_pedras_outline/spr_pedras_outline.yy",},},
     {"id":{"name":"spr_pedras","path":"sprites/spr_pedras/spr_pedras.yy",},},
     {"id":{"name":"spr_pedras1","path":"sprites/spr_pedras1/spr_pedras1.yy",},},
     {"id":{"name":"spr_plate","path":"sprites/spr_plate/spr_plate.yy",},},

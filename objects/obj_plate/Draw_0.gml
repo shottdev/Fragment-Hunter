@@ -4,6 +4,9 @@
 //me desenhando
 draw_self();
 
+//setando a fonte do texto
+draw_set_font(fnt_tutorial);
+
 //pegando o texto (de onde ele começa até onde ele vai)
 var _texto = string_copy(texto, 0, index);
 
@@ -22,8 +25,6 @@ draw_sprite_ext(spr_dialogue, 0, x - _spr_w / 2, y - 50, _xscale, 1, 0, c_white,
 //setando um eixo x para desenhar o texto
 var _x = x - _spr_w / 2;
 
-//setando a fonte do texto
-draw_set_font(fnt_tutorial);
 
 //desenhando o texto (aqui ele desenha o texto até um certo ponto, depois daí ele pula de linha, usa também a variavel _texto para pegar só o texto que já ta sendo mostrado pelo index)
 draw_text_ext_transformed_colour(_x + margem, y - (50 - margem), _texto, 20, (_spr_w / 0.2) - margem, 0.2, 0.2, 0, c_white, c_white, c_white, c_white, box_alpha);

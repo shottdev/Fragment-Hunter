@@ -23,8 +23,8 @@
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
   "spriteId":{
-    "name":"spr_pedras",
-    "path":"sprites/spr_pedras/spr_pedras.yy",
+    "name":"spr_pedras_outline",
+    "path":"sprites/spr_pedras_outline/spr_pedras_outline.yy",
   },
   "spriteNoExport":false,
   "textureGroupId":{
