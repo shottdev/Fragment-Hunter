@@ -1,10 +1,10 @@
 {
   "$GMTileSet":"v1",
-  "%Name":"tl_pedras",
+  "%Name":"tl_tuto_room",
   "autoTileSets":[
     {"$GMAutoTileSet":"","%Name":"autotile_1","closed_edge":false,"name":"autotile_1","resourceType":"GMAutoTileSet","resourceVersion":"2.0","tiles":[
-        8,142,133,190,61,181,191,207,70,215,180,182,214,183,206,179,304,186,210,189,235,184,185,188,285,211,
-        187,213,355,209,208,212,317,315,232,220,237,221,357,245,352,244,293,314,341,316,178,
+        37,78,77,79,60,45,80,46,61,63,44,47,62,30,29,43,36,83,84,82,21,66,67,64,39,100,101,65,72,118,117,81,
+        35,24,19,40,22,42,73,76,70,74,18,23,52,25,26,
       ],},
   ],
   "macroPageTiles":{
@@ -12,8 +12,8 @@
     "SerialiseWidth":0,
     "TileSerialiseData":[],
   },
-  "name":"tl_pedras",
-  "out_columns":20,
+  "name":"tl_tuto_room",
+  "out_columns":11,
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
@@ -23,8 +23,8 @@
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
   "spriteId":{
-    "name":"spr_pedras_outline",
-    "path":"sprites/spr_pedras_outline/spr_pedras_outline.yy",
+    "name":"spr_tileset_tuto_room",
+    "path":"sprites/spr_tileset_tuto_room/spr_tileset_tuto_room.yy",
   },
   "spriteNoExport":false,
   "textureGroupId":{
@@ -39,5 +39,5 @@
   "tileWidth":16,
   "tilexoff":0,
   "tileyoff":0,
-  "tile_count":384,
+  "tile_count":119,
 }
