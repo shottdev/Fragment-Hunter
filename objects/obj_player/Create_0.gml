@@ -134,9 +134,12 @@ apply_speed = function()
 {
     move_and_collide(velh, 0, tile, 24);
     move_and_collide(0, velv, tile, 24);
-    
-    if (velh != 0) image_xscale = sign(velh);
         
+}
+
+swap_direction = function()
+{
+    if (velh != 0) image_xscale = sign(velh);
 }
 
 
@@ -185,6 +188,7 @@ move_state = function()
 {
     apply_speed();
     swap_sprite(spr_player_walk);
+    swap_direction();
     
     if (velh == 0)
     {
@@ -210,6 +214,7 @@ move_state = function()
 jump_state = function()
 {
     apply_speed();
+    swap_direction();
     
     if (velv < 0)
     {
@@ -234,6 +239,7 @@ dash_state = function()
 {
     apply_speed();
     swap_sprite(spr_player_dash);
+    swap_direction();
     
     if (dash_duration <= 0)
     {
@@ -388,6 +394,8 @@ if (global.teleporting && instance_number(obj_teleporter2) == 0)
 {
     instance_create_layer(x, y, "teleporter", obj_teleporter2);
 }
+
+
 
 
 state = idle_state;

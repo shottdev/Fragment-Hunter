@@ -5,7 +5,6 @@
 input();
 ground_check();
 move();
-
 state();
 
     
