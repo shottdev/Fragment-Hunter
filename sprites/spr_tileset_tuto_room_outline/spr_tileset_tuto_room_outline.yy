@@ -1,27 +1,27 @@
 {
   "$GMSprite":"v2",
-  "%Name":"spr_pedras1",
+  "%Name":"spr_tileset_tuto_room_outline",
   "bboxMode":0,
-  "bbox_bottom":128,
-  "bbox_left":0,
-  "bbox_right":127,
-  "bbox_top":0,
+  "bbox_bottom":111,
+  "bbox_left":16,
+  "bbox_right":271,
+  "bbox_top":16,
   "collisionKind":1,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"v1","%Name":"6639c674-da9f-4269-b463-95cc636b25d1","name":"6639c674-da9f-4269-b463-95cc636b25d1","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"edbeb529-7470-4d98-9686-effb431ba26b","name":"edbeb529-7470-4d98-9686-effb431ba26b","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
-  "height":129,
+  "height":112,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"0ea6a7c4-a431-406c-a61e-8978751f8e97","blendMode":0,"displayName":"default","isLocked":false,"name":"0ea6a7c4-a431-406c-a61e-8978751f8e97","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"57944846-8e59-4ec2-8aa8-7b330ccb5597","blendMode":0,"displayName":"default","isLocked":false,"name":"57944846-8e59-4ec2-8aa8-7b330ccb5597","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"spr_pedras1",
+  "name":"spr_tileset_tuto_room_outline",
   "nineSlice":null,
   "origin":0,
   "parent":{
@@ -33,7 +33,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"v1",
-    "%Name":"spr_pedras1",
+    "%Name":"spr_tileset_tuto_room_outline",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -57,7 +57,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"spr_pedras1",
+    "name":"spr_tileset_tuto_room_outline",
     "playback":1,
     "playbackSpeed":30.0,
     "playbackSpeedType":0,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"6639c674-da9f-4269-b463-95cc636b25d1","path":"sprites/spr_pedras1/spr_pedras1.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"292a11ea-f6db-4152-83ca-612866512e70","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"edbeb529-7470-4d98-9686-effb431ba26b","path":"sprites/spr_tileset_tuto_room_outline/spr_tileset_tuto_room_outline.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"4114ca62-a7a2-4cc7-a55d-095694f86d65","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
@@ -86,5 +86,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":128,
+  "width":272,
 }
