@@ -52,6 +52,7 @@
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},
     {"id":{"name":"obj_collider","path":"objects/obj_collider/obj_collider.yy",},},
     {"id":{"name":"obj_fragmento","path":"objects/obj_fragmento/obj_fragmento.yy",},},
+    {"id":{"name":"obj_gamepad","path":"objects/obj_gamepad/obj_gamepad.yy",},},
     {"id":{"name":"obj_hitbox","path":"objects/obj_hitbox/obj_hitbox.yy",},},
     {"id":{"name":"obj_mushroom","path":"objects/obj_mushroom/obj_mushroom.yy",},},
     {"id":{"name":"obj_orbe_da_avareza","path":"objects/obj_orbe_da_avareza/obj_orbe_da_avareza.yy",},},

@@ -49,12 +49,12 @@ hitbox = noone;
 
 input = function()
 {
-    right = keyboard_check(vk_right) or keyboard_check(ord("D"));
-    left = keyboard_check(vk_left) or keyboard_check(ord("A"));
-    jump = keyboard_check_pressed(vk_space);
-    dash = keyboard_check_pressed(vk_shift) or keyboard_check_pressed(ord("C"));
-    attack = mouse_check_button_pressed(mb_left) or keyboard_check_pressed(ord("Z"));
-    attack2 = mouse_check_button_pressed(mb_right) or keyboard_check_pressed(ord("X"));
+    right = keyboard_check(vk_right) or keyboard_check(ord("D")) or gamepad_axis_value(global.gamepad_id, gp_axislh) > 0.25 or gamepad_button_check(global.gamepad_id, gp_padr);
+    left = keyboard_check(vk_left) or keyboard_check(ord("A")) or gamepad_axis_value(global.gamepad_id, gp_axislh) < -0.25 or gamepad_button_check(global.gamepad_id, gp_padl);
+    jump = keyboard_check_pressed(vk_space) or gamepad_button_check_pressed(global.gamepad_id, gp_face1);
+    dash = keyboard_check_pressed(vk_shift) or keyboard_check_pressed(ord("C")) or gamepad_button_check_pressed(global.gamepad_id, gp_shoulderrb);
+    attack = mouse_check_button_pressed(mb_left) or keyboard_check_pressed(ord("Z")) or gamepad_button_check_pressed(global.gamepad_id, gp_face3);
+    attack2 = mouse_check_button_pressed(mb_right) or keyboard_check_pressed(ord("X")) or gamepad_button_check_pressed(global.gamepad_id, gp_face2);
     
 }
 
@@ -179,8 +179,6 @@ idle_state = function()
     {
         state = returning_state;
     }
-    
-    if (keyboard_check_pressed(ord("F"))) state = throw_portal_state;
 }
 
 move_state = function()
@@ -207,8 +205,6 @@ move_state = function()
     {
         state = jump_state;
     }
-    var _spd_bg = 0.8;
-    layer_hspeed("bg1", _spd_bg);
 }
 
 jump_state = function()
@@ -384,27 +380,6 @@ returning_state = function()
     {
         state = idle_state;
         global.teleporting = false;
-    }
-}
-
-prepare_throw_portal_state = function()
-{
-    swap_sprite(spr_player_throw1);
-    
-    if (image_index >= image_number - 1)
-    {
-        state = throw_portal_state;
-    }
-}
-
-throw_portal_state = function()
-{
-    swap_sprite(spr_player_throw2);
-    
-    if (image_index >= image_number - 1)
-    {
-        var _tp = instance_create_layer(x + 15 * image_xscale, y, "teleporter", obj_teleporter1);
-        state = idle_state;
     }
 }
 

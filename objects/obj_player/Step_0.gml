@@ -47,3 +47,8 @@ if (!orb)
     obj_orbe_da_avareza.dest_x = x;
     obj_orbe_da_avareza.dest_y = y - 8;
 }
+
+if (gamepad_button_check_pressed(global.gamepad_id, gp_stickr))
+{
+    room_restart();
+}
