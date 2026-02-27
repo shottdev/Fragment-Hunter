@@ -396,7 +396,14 @@ if (global.teleporting && instance_number(obj_teleporter2) == 0)
     instance_create_layer(x, y, "teleporter", obj_teleporter2);
 }
 
-
+if (global.transicao == true)
+{
+	var _transicao2 = noone;
+	if (!layer_sequence_exists("sq_transicao", _transicao2))
+	{
+		_transicao2 = layer_sequence_create("sq_transicao", 0, 0, sq_transition2);
+	}
+}
 
 
 state = idle_state;
