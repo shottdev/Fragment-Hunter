@@ -2,7 +2,7 @@
   "$GMTileSet":"v1",
   "%Name":"tl_tuto_room",
   "autoTileSets":[
-    {"$GMAutoTileSet":"","%Name":"autotile_1","closed_edge":false,"name":"autotile_1","resourceType":"GMAutoTileSet","resourceVersion":"2.0","tiles":[
+    {"$GMAutoTileSet":"","%Name":"ground","closed_edge":false,"name":"ground","resourceType":"GMAutoTileSet","resourceVersion":"2.0","tiles":[
         37,78,77,79,60,45,80,46,61,63,44,47,62,30,29,43,36,83,84,82,21,66,67,64,39,100,101,65,72,118,117,81,
         35,24,19,40,22,42,73,76,70,74,18,23,52,25,26,
       ],},

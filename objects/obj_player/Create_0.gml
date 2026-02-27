@@ -266,6 +266,7 @@ fragment_pickup_state = function()
     {
         seq_id = layer_sequence_create("sq_transicao", 0, 0, sq_transition1);
         global.destino = rm_fase_teste;
+		global.transicao = true;
     }
 }
 

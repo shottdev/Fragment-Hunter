@@ -6,6 +6,7 @@ global.fragmento = false;
 global.destino = noone;
 global.teleporting = false;
 global.tp_destiny = noone;
+global.transicao = false;
 
 function goto_destiny()
 {
