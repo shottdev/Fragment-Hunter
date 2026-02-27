@@ -19,7 +19,7 @@ else {
     }
 }
 
-if (keyboard_check(vk_space))
+if (keyboard_check(vk_enter))
 {
     vel_txt = .8;
 }

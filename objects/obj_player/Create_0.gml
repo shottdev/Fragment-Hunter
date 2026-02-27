@@ -39,7 +39,7 @@ dash_counter = 0;
 #endregion dash
 
 seq_id = -1;
-throw_force = 2;
+throw_force = 3;
 orb = true;
 orb_dir = 0;
 hitbox = noone;
@@ -49,12 +49,12 @@ hitbox = noone;
 
 input = function()
 {
-    right = keyboard_check(vk_right) or keyboard_check(ord("D"));
-    left = keyboard_check(vk_left) or keyboard_check(ord("A"));
-    jump = keyboard_check_pressed(vk_space);
-    dash = keyboard_check_pressed(vk_shift) or keyboard_check_pressed(ord("C"));
-    attack = mouse_check_button_pressed(mb_left) or keyboard_check_pressed(ord("Z"));
-    attack2 = mouse_check_button_pressed(mb_right) or keyboard_check_pressed(ord("X"));
+    right = keyboard_check(vk_right) or keyboard_check(ord("D")) or gamepad_axis_value(global.gamepad_id, gp_axislh) > 0.25 or gamepad_button_check(global.gamepad_id, gp_padr);
+    left = keyboard_check(vk_left) or keyboard_check(ord("A")) or gamepad_axis_value(global.gamepad_id, gp_axislh) < -0.25 or gamepad_button_check(global.gamepad_id, gp_padl);
+    jump = keyboard_check_pressed(vk_space) or gamepad_button_check_pressed(global.gamepad_id, gp_face1);
+    dash = keyboard_check_pressed(vk_shift) or keyboard_check_pressed(ord("C")) or gamepad_button_check_pressed(global.gamepad_id, gp_shoulderrb);
+    attack = mouse_check_button_pressed(mb_left) or keyboard_check_pressed(ord("Z")) or gamepad_button_check_pressed(global.gamepad_id, gp_face3);
+    attack2 = mouse_check_button_pressed(mb_right) or keyboard_check_pressed(ord("X")) or gamepad_button_check_pressed(global.gamepad_id, gp_face2);
     
 }
 
@@ -123,8 +123,6 @@ move = function()
         }
     }
     
-    if (velh != 0) image_xscale = sign(velh);
-    
     
     if (place_meeting(x + velh, y, obj_collider))
     {
@@ -136,6 +134,12 @@ apply_speed = function()
 {
     move_and_collide(velh, 0, tile, 24);
     move_and_collide(0, velv, tile, 24);
+        
+}
+
+swap_direction = function()
+{
+    if (velh != 0) image_xscale = sign(velh);
 }
 
 
@@ -164,14 +168,19 @@ idle_state = function()
         state = dash_state;
     }
     
-    if (attack && global.fragmento)
+    if (attack && global.fragmento && orb == true)
     {
         state = prepare_attack_state;
     }
     
-    if (attack2 && global.fragmento && orb = true)
+    if (attack2 && global.fragmento && orb == true)
     {
         state = prepare_throw_state;
+    }
+    
+    if (global.teleporting)
+    {
+        state = returning_state;
     }
 }
 
@@ -179,6 +188,7 @@ move_state = function()
 {
     apply_speed();
     swap_sprite(spr_player_walk);
+    swap_direction();
     
     if (velh == 0)
     {
@@ -194,11 +204,17 @@ move_state = function()
     {
         state = dash_state;
     }
+    
+    if (!ground)
+    {
+        state = jump_state;
+    }
 }
 
 jump_state = function()
 {
     apply_speed();
+    swap_direction();
     
     if (velv < 0)
     {
@@ -223,6 +239,7 @@ dash_state = function()
 {
     apply_speed();
     swap_sprite(spr_player_dash);
+    swap_direction();
     
     if (dash_duration <= 0)
     {
@@ -280,7 +297,7 @@ throw_state = function()
 {
     swap_sprite(spr_player_throw2);
     
-    if (image_index >= image_number - 1)
+    if (image_index >= 4)
     {
         var _orb = instance_create_layer(x, y - 8, "items", obj_orbe_da_avareza);
         _orb.speed = throw_force;
@@ -293,7 +310,7 @@ throw_state = function()
         
         state = idle_state;
         
-        throw_force = 2;
+        throw_force = 3;
     }
 }
 
@@ -349,6 +366,36 @@ attack_state = function()
         state = idle_state;
     }
 }
+
+
+falling_state = function()
+{
+    swap_sprite(spr_player_falling);
+    
+    if (image_index >= image_number - 1)
+    {
+        room_goto(global.tp_destiny);
+    }
+}
+
+returning_state = function()
+{
+    swap_sprite_reversed(spr_player_falling);
+    
+    if (image_index <= 1)
+    {
+        state = idle_state;
+        global.teleporting = false;
+    }
+}
+
+
+if (global.teleporting && instance_number(obj_teleporter2) == 0)
+{
+    instance_create_layer(x, y, "teleporter", obj_teleporter2);
+}
+
+
 
 
 state = idle_state;

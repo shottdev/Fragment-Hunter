@@ -5,7 +5,6 @@
 input();
 ground_check();
 move();
-
 state();
 
     
@@ -39,11 +38,16 @@ if (dash_duration > 0)
     }
 }
 
-throw_force = clamp(throw_force, 2, 5);
+throw_force = clamp(throw_force, 3, 5);
 
 
 if (!orb)
 {
     obj_orbe_da_avareza.dest_x = x;
     obj_orbe_da_avareza.dest_y = y - 8;
+}
+
+if (gamepad_button_check_pressed(global.gamepad_id, gp_stickr))
+{
+    room_restart();
 }
