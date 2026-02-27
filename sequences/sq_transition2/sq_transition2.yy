@@ -23,9 +23,9 @@
     "Keyframes":[
       {"$Keyframe<MomentsEventKeyframe>":"","Channels":{
           "0":{"$MomentsEventKeyframe":"","Events":[
-              "goto_destiny",
+              "final_transicao",
             ],"resourceType":"MomentsEventKeyframe","resourceVersion":"2.0",},
-        },"Disabled":false,"id":"89a6d3d5-1ac8-450c-a942-bfaa4b146b12","IsCreationKey":false,"Key":149.9999,"Length":1.0,"resourceType":"Keyframe<MomentsEventKeyframe>","resourceVersion":"2.0","Stretch":false,},
+        },"Disabled":false,"id":"9d1ede70-7533-4ea7-8252-d3c8aeba88e9","IsCreationKey":false,"Key":149.9999,"Length":1.0,"resourceType":"Keyframe<MomentsEventKeyframe>","resourceVersion":"2.0","Stretch":false,},
     ],
     "resourceType":"KeyframeStore<MomentsEventKeyframe>",
     "resourceVersion":"2.0",

@@ -12,3 +12,8 @@ function goto_destiny()
 {
     room_goto(global.destino);
 }
+
+function final_transicao()
+{
+	if (global.transicao) global.transicao = false;
+}
