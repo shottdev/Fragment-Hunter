@@ -2,4 +2,8 @@
 // Você pode escrever seu código neste editor
 
 
-state_machine();
+check_ground();
+if (instance_exists(obj_player)) control_state();
+
+move_and_collide(velh, 0, tile);
+move_and_collide(0, velv, tile);

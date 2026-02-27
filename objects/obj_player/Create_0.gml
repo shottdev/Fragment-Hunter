@@ -43,6 +43,7 @@ throw_force = 3;
 orb = true;
 orb_dir = 0;
 hitbox = noone;
+kb_duration = 10;
 
 #endregion variáveis
 
@@ -388,6 +389,16 @@ returning_state = function()
         state = idle_state;
         global.teleporting = false;
     }
+}
+
+kb_state = function()
+{
+	apply_speed();
+	
+	if (kb_duration <= 0)
+	{
+		state = idle_state;	
+	}
 }
 
 
