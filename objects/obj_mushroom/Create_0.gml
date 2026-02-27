@@ -8,6 +8,9 @@ inv = false;
 timer_inv = 0;
 delay_inv = 30;
 velh = 0.4;
+hp = 3;
+
+start_sq(1, 1);
 
 normal = function()
 {
@@ -28,10 +31,17 @@ normal = function()
         if (_fim)
         {
             velh = -velh;
+            image_xscale = -image_xscale;
         }
         
         x += velh;
     }
+    
+    var _target_xscale = 1 * sign(velh); // estica horizontal
+    adjust_sq(_target_xscale, 1, 0.1);
+    
+    image_xscale = sq_xscale;
+    image_yscale = sq_yscale;
 }
 damage = function()
 {
@@ -40,6 +50,11 @@ damage = function()
         timer_colorise(5);
         inv = true;
     }
+    
+    var _target_xscale = 1.4 * sign(velh);
+    var _target_yscale = 0.6;
+    use_sq(_target_xscale, _target_yscale);
+    hp--;
     
     
     state = normal;

@@ -5,3 +5,4 @@ counter_colorise();
 state();
 
 image_xscale = -sign(velh);
+
