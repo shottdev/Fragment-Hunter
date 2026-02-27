@@ -44,11 +44,12 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.2.213",
+    "IDEVersion":"2024.14.3.217",
   },
   "name":"Otherside",
   "resources":[
     {"id":{"name":"fnt_tutorial","path":"fonts/fnt_tutorial/fnt_tutorial.yy",},},
+    {"id":{"name":"obj_boss","path":"objects/obj_boss/obj_boss.yy",},},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},
     {"id":{"name":"obj_coco_minion_1","path":"objects/obj_coco_minion_1/obj_coco_minion_1.yy",},},
     {"id":{"name":"obj_collider","path":"objects/obj_collider/obj_collider.yy",},},
@@ -75,6 +76,7 @@
     {"id":{"name":"coco_tribal_minion_1","path":"sprites/coco_tribal_minion_1/coco_tribal_minion_1.yy",},},
     {"id":{"name":"coco_tribal_minon_2","path":"sprites/coco_tribal_minon_2/coco_tribal_minon_2.yy",},},
     {"id":{"name":"spr_bick","path":"sprites/spr_bick/spr_bick.yy",},},
+    {"id":{"name":"spr_boss","path":"sprites/spr_boss/spr_boss.yy",},},
     {"id":{"name":"spr_collider","path":"sprites/spr_collider/spr_collider.yy",},},
     {"id":{"name":"spr_dialogue","path":"sprites/spr_dialogue/spr_dialogue.yy",},},
     {"id":{"name":"spr_fragmento_de_espelho_branco","path":"sprites/spr_fragmento_de_espelho_branco/spr_fragmento_de_espelho_branco.yy",},},
