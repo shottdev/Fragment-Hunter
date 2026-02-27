@@ -50,6 +50,7 @@
   "name":"Otherside",
   "resources":[
     {"id":{"name":"fnt_tutorial","path":"fonts/fnt_tutorial/fnt_tutorial.yy",},},
+    {"id":{"name":"obj_boss","path":"objects/obj_boss/obj_boss.yy",},},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},
     {"id":{"name":"obj_collider","path":"objects/obj_collider/obj_collider.yy",},},
     {"id":{"name":"obj_fragmento","path":"objects/obj_fragmento/obj_fragmento.yy",},},
@@ -74,6 +75,7 @@
     {"id":{"name":"sh_colorise","path":"shaders/sh_colorise/sh_colorise.yy",},},
     {"id":{"name":"snd_tutorial","path":"sounds/snd_tutorial/snd_tutorial.yy",},},
     {"id":{"name":"spr_bick","path":"sprites/spr_bick/spr_bick.yy",},},
+    {"id":{"name":"spr_boss","path":"sprites/spr_boss/spr_boss.yy",},},
     {"id":{"name":"spr_collider","path":"sprites/spr_collider/spr_collider.yy",},},
     {"id":{"name":"spr_dialogue","path":"sprites/spr_dialogue/spr_dialogue.yy",},},
     {"id":{"name":"spr_fragmento_de_espelho_branco","path":"sprites/spr_fragmento_de_espelho_branco/spr_fragmento_de_espelho_branco.yy",},},
