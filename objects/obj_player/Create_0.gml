@@ -45,6 +45,11 @@ orb_dir = 0;
 hitbox = noone;
 kb_duration = 10;
 
+dash_timer = 0;
+delay_dash = 20;
+
+can_dash = true;
+
 #endregion variáveis
 
 
@@ -82,8 +87,7 @@ move = function()
             jump_counter++;
         }
         
-        dash_counter = 0;
-        
+		if (can_dash) dash_counter = 0;
     }
     else {
         if (jump_counter == 0) jump_counter = 1;
@@ -102,10 +106,11 @@ move = function()
         }
     }
     
-    if (dash && dash_duration == 0 && dash_counter == 0)
+    if (dash && dash_duration == 0 && dash_counter == 0 && can_dash == true)
     {
         dash_duration = 10;
         dash_counter++;
+		can_dash = false;
     }
     
     if (dash_duration > 0)
@@ -123,6 +128,17 @@ move = function()
             dash_duration = 0;
         }
     }
+	
+	if (dash_counter > 0 && can_dash == false)
+	{
+		dash_timer++;
+			
+		if (dash_timer >= delay_dash)
+		{
+			can_dash = true;
+			dash_timer = 0;
+		}
+	}
     
     
     if (place_meeting(x + velh, y, obj_collider))
@@ -389,16 +405,6 @@ returning_state = function()
         state = idle_state;
         global.teleporting = false;
     }
-}
-
-kb_state = function()
-{
-	apply_speed();
-	
-	if (kb_duration <= 0)
-	{
-		state = idle_state;	
-	}
 }
 
 

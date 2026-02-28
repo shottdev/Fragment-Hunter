@@ -1,12 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"obj_coco_minion_1",
+  "%Name":"obj_coco_1",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_coco_minion_1",
+  "name":"obj_coco_1",
   "overriddenProperties":[],
   "parent":{
     "name":"inimigos",
@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"coco_tribal_minion_1",
-    "path":"sprites/coco_tribal_minion_1/coco_tribal_minion_1.yy",
+    "name":"spr_coco_1",
+    "path":"sprites/spr_coco_1/spr_coco_1.yy",
   },
   "spriteMaskId":null,
   "visible":true,
