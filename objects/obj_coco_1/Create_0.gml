@@ -120,6 +120,7 @@ control_state = function()
 					_dardo.speed = 4;
 					_dardo.image_angle = _dir;
 					timer_shoot = 0;
+					state = "idle";
 				}
 				
 				
