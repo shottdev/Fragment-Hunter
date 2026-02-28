@@ -44,7 +44,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.3.217",
+    "IDEVersion":"2024.14.2.213",
   },
   "name":"Otherside",
   "resources":[
@@ -78,7 +78,6 @@
     {"id":{"name":"Sound1","path":"sounds/Sound1/Sound1.yy",},},
     {"id":{"name":"spr_bick","path":"sprites/spr_bick/spr_bick.yy",},},
     {"id":{"name":"spr_boss","path":"sprites/spr_boss/spr_boss.yy",},},
-    {"id":{"name":"spr_coco_1_shoot","path":"sprites/spr_coco_1_shoot/spr_coco_1_shoot.yy",},},
     {"id":{"name":"spr_coco_1","path":"sprites/spr_coco_1/spr_coco_1.yy",},},
     {"id":{"name":"spr_coco_2","path":"sprites/spr_coco_2/spr_coco_2.yy",},},
     {"id":{"name":"spr_collider","path":"sprites/spr_collider/spr_collider.yy",},},
