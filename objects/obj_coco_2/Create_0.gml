@@ -18,11 +18,13 @@ timer_walk = 0;
 delay_walk = 60;
 dir = 1;
 inv = false;
+inv_timer = 0;
+inv_delay = 60;
 hp = 5;
 diff_dir = false;
 
 timer_attack = 0;
-delay_attack = game_get_speed(gamespeed_fps);
+delay_attack = game_get_speed(gamespeed_fps) / 3;
 
 timer_shoot = 0;
 delay_shoot = 60;
@@ -132,6 +134,16 @@ control_state = function()
 				inv = true;
 				timer_colorise(5);
 				use_sq(1.5, 0.5);
+				
+				if (hp > 1)
+				{
+					hp--;
+					state = "idle";
+				}
+				else
+				{
+					instance_destroy();
+				}
 			}
 		}
 		break;

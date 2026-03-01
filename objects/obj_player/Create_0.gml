@@ -55,8 +55,14 @@ can_dash = true;
 
 dir = 1;
 
+inv = false;
+inv_timer = 0;
+inv_delay = game_get_speed(gamespeed_fps) / 2;
+
 lock_dir = false;
 damage_dir = noone;
+
+hp = 10;
 
 #endregion variáveis
 
@@ -208,9 +214,14 @@ apply_speed = function()
 
 hurt = function()
 {
-	state = damage_state;
-	timer_colorise(3);
-	use_sq(1.4, 0.6);
+	if (!inv)
+	{
+		hp--;
+		state = damage_state;
+		timer_colorise(3);
+		use_sq(1.4, 0.6);
+		inv = true;
+	}
 }
 
 
@@ -229,7 +240,7 @@ idle_state = function()
 		instance_create_depth(x, y + 3, depth - 1, obj_pulo_particula);
         state = jump_state;
 		use_sq(0.6, 1.4);
-		pitch(Salto, 0.8, 1.2);
+		pitch(snd_sound, 0.8, 1.2);
     }
     
     if (!ground)
@@ -257,6 +268,17 @@ idle_state = function()
     {
         state = returning_state;
     }
+	
+	if (inv)
+	{
+		inv_timer++;
+		
+		if (inv_timer >= inv_delay)
+		{
+			inv = false;
+			inv_timer = 0;
+		}	
+	}
 }
 
 move_state = function()
@@ -275,6 +297,7 @@ move_state = function()
 		instance_create_depth(x, y + 3, depth - 1, obj_pulo_particula);
         state = jump_state;
 		use_sq(0.6, 1.4);
+		pitch(snd_sound, 0.8, 1.2);
     }
     
     if (dash && !can_dash)
@@ -344,11 +367,13 @@ fragment_pickup_state = function()
 		case 0:
 		{
 			global.fragmento = true;
+			global.destino = rm_tutorial;
 		}
 		break;
 		case 1:
 		{
 			global.fragmento02 = true;
+			global.destino = rm_game;
 		}
 	}
     
@@ -363,7 +388,6 @@ fragment_pickup_state = function()
     if (_view_w <= 147 && !layer_sequence_exists("sq_transicao", seq_id))
     {
         seq_id = layer_sequence_create("sq_transicao", 0, 0, sq_transition1);
-        global.destino = rm_tutorial;
 		global.transicao = true;
     }
 }

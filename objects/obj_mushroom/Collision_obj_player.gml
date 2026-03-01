@@ -4,9 +4,11 @@
 
 if (other.dash_duration == 0)
 {
-	other.kb_duration = 5;
-	other.damage_dir = (x - other.x);
+	if (!other.inv)
+	{
+		other.kb_duration = 5;
+		other.damage_dir = (x - other.x);
+		state = damage;
+	}
 	other.hurt();
 }
-
-state = damage;

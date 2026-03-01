@@ -6,7 +6,7 @@ start_colorise();
 
 inv = false;
 timer_inv = 0;
-delay_inv = 30;
+delay_inv = game_get_speed(gamespeed_fps) / 3;
 velh = 0.4;
 hp = 3;
 

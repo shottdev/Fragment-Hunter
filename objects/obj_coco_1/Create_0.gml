@@ -20,6 +20,8 @@ dir = 1;
 inv = false;
 hp = 5;
 diff_dir = false;
+inv_timer = 0;
+inv_delay = game_get_speed(gamespeed_fps) / 3;
 
 timer_shoot = 0;
 delay_shoot = 60;
@@ -136,6 +138,7 @@ control_state = function()
 				inv = true;
 				timer_colorise(5);
 				use_sq(1.5, 0.5);
+				state = "idle";
 			}
 		}
 	}

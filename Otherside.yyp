@@ -83,7 +83,7 @@
     {"id":{"name":"sq_transition1","path":"sequences/sq_transition1/sq_transition1.yy",},},
     {"id":{"name":"sq_transition2","path":"sequences/sq_transition2/sq_transition2.yy",},},
     {"id":{"name":"sh_colorise","path":"shaders/sh_colorise/sh_colorise.yy",},},
-    {"id":{"name":"Salto","path":"sounds/Salto/Salto.yy",},},
+    {"id":{"name":"snd_sound","path":"sounds/snd_sound/snd_sound.yy",},},
     {"id":{"name":"spr_bick","path":"sprites/spr_bick/spr_bick.yy",},},
     {"id":{"name":"spr_boss_throw","path":"sprites/spr_boss_throw/spr_boss_throw.yy",},},
     {"id":{"name":"spr_boss","path":"sprites/spr_boss/spr_boss.yy",},},
