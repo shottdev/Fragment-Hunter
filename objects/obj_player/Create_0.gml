@@ -2,6 +2,9 @@
 // Você pode escrever seu código neste editor
 
 
+start_sq();
+start_colorise();
+
 #region variáveis
 #region andar
 //velocidade horizontal
@@ -31,7 +34,7 @@ dash_speed = 5;
 
 //timer do afterimage
 timer_afterimage = 0;
-//delay afterimage
+//delay do afterimage
 delay_afterimage = 2;
 
 //contador de dash
@@ -43,27 +46,36 @@ throw_force = 3;
 orb = true;
 orb_dir = 0;
 hitbox = noone;
-kb_duration = 10;
+kb_duration = 0;
 
 dash_timer = 0;
 delay_dash = 20;
 
 can_dash = true;
 
+dir = 1;
+
+lock_dir = false;
+damage_dir = noone;
+
 #endregion variáveis
 
 
 input = function()
 {
+	//pegando todos os inputs com teclado, mouse ou controle
     right = keyboard_check(vk_right) or keyboard_check(ord("D")) or gamepad_axis_value(global.gamepad_id, gp_axislh) > 0.25 or gamepad_button_check(global.gamepad_id, gp_padr);
     left = keyboard_check(vk_left) or keyboard_check(ord("A")) or gamepad_axis_value(global.gamepad_id, gp_axislh) < -0.25 or gamepad_button_check(global.gamepad_id, gp_padl);
     jump = keyboard_check_pressed(vk_space) or gamepad_button_check_pressed(global.gamepad_id, gp_face1);
     dash = keyboard_check_pressed(vk_shift) or keyboard_check_pressed(ord("C")) or gamepad_button_check_pressed(global.gamepad_id, gp_shoulderrb);
     attack = mouse_check_button_pressed(mb_left) or keyboard_check_pressed(ord("Z")) or gamepad_button_check_pressed(global.gamepad_id, gp_face3);
     attack2 = mouse_check_button_pressed(mb_right) or keyboard_check_pressed(ord("X")) or gamepad_button_check_pressed(global.gamepad_id, gp_face2);
+	attack2_down = mouse_check_button(mb_right) or keyboard_check(ord("X")) or gamepad_button_check(global.gamepad_id, gp_face2);
+	attack2_release = mouse_check_button_released(mb_right) or keyboard_check_released(ord("X")) or gamepad_button_check_released(global.gamepad_id, gp_face2);
     
 }
 
+//checando se estou no chao
 ground_check = function()
 {
     //ground = place_meeting(x, y + 1, obj_collider);
@@ -71,14 +83,33 @@ ground_check = function()
     ground = place_meeting(x, y + 1, tile);
 }
 
+//trocando a direcao
+swap_direction = function()
+{
+	//nao faz mais nada
+	if (!lock_dir)
+	{
+		if (right) dir = 1;
+		if (left) dir = -1;
+	}
+}
+
+//método de movimento
 move = function()
 {
+	//aplicando os inputs no velh
     velh = (right - left) * max_velh;
     
+	//se estou no chao
     if (ground)
     {
+		//meu contador de pulos volta a ser zero
         jump_counter = 0;
+		
+		//zero meu velv
         velv = 0;
+		
+		//arredondando o y
         y = round(y);
         
         if (jump)
@@ -145,6 +176,27 @@ move = function()
     {
         velh = 0;
     }
+	
+	if (kb_duration > 0)
+	{
+		lock_dir = true;
+		kb_duration--;
+		var _vel = 0.6 * -damage_dir;
+		
+		if (!place_meeting(x + _vel, y, tile))
+        {
+            velh = _vel;
+        }
+        else {
+        	velh = 0;
+            kb_duration = 0;
+        }
+		
+		if (kb_duration <= 0)
+		{
+			lock_dir = false;
+		}
+	}
 }
 
 apply_speed = function()
@@ -154,9 +206,11 @@ apply_speed = function()
         
 }
 
-swap_direction = function()
+hurt = function()
 {
-    if (velh != 0) image_xscale = sign(velh);
+	state = damage_state;
+	timer_colorise(3);
+	use_sq(1.4, 0.6);
 }
 
 
@@ -172,7 +226,10 @@ idle_state = function()
     
     if (jump)
     {
+		instance_create_depth(x, y + 3, depth - 1, obj_pulo_particula);
         state = jump_state;
+		use_sq(0.6, 1.4);
+		pitch(Salto, 0.8, 1.2);
     }
     
     if (!ground)
@@ -180,9 +237,10 @@ idle_state = function()
         state = jump_state;
     }
     
-    if (dash)
+    if (dash && !can_dash)
     {
         state = dash_state;
+		use_sq(1.4, 0.6);
     }
     
     if (attack && global.fragmento && orb == true)
@@ -214,12 +272,15 @@ move_state = function()
     
     if (jump)
     {
+		instance_create_depth(x, y + 3, depth - 1, obj_pulo_particula);
         state = jump_state;
+		use_sq(0.6, 1.4);
     }
     
-    if (dash)
+    if (dash && !can_dash)
     {
         state = dash_state;
+		use_sq(1.4, 0.6);
     }
     
     if (!ground)
@@ -244,12 +305,20 @@ jump_state = function()
     if (ground)
     {
         state = idle_state;
+		use_sq(1.5, 0.5);
+		instance_create_depth(x, y, depth - 1, obj_pouso_particula);
     }
     
-    if (dash)
+    if (dash && !can_dash)
     {
         state = dash_state;
+		use_sq(1.4, 0.6);
     }
+	
+	if (jump && jump_counter < 2)
+	{
+		use_sq(0.5, 1.5);
+	}
 }
 
 dash_state = function()
@@ -291,16 +360,19 @@ prepare_throw_state = function()
 {
     swap_sprite(spr_player_throw1);
     
+	if (kb_duration > 0)
+	{
+		state = damage_state;
+	}
+	
     if (image_index >= image_number - 1)
     {
-        var _input1 = mb_right;
-        var _input2 = ord("X");
-        if (mouse_check_button(_input1) or keyboard_check(_input2))
+        if (attack2_down)
         {
             image_index = image_number - 1;
             throw_force += 0.1;
             
-            if (mouse_check_button_released(_input1) or keyboard_check_released(_input2))
+            if (attack2_release)
             {
                 state = throw_state;
             }
@@ -334,6 +406,7 @@ throw_state = function()
 
 prepare_attack_state = function()
 {
+	lock_dir = true;
     swap_sprite(spr_player_throw1);
     
     if (image_index >= image_number - 1)
@@ -344,13 +417,14 @@ prepare_attack_state = function()
 
 attack_state = function()
 {
+	swap_direction();
     swap_sprite(spr_player_attack);
-    
+	
     if (image_index >= 3)
     {
         if (hitbox == noone)
         {
-            switch (image_xscale)
+            switch (dir)
             {
                 case 1:
                 {
@@ -382,6 +456,7 @@ attack_state = function()
             hitbox = noone;
         }
         state = idle_state;
+		lock_dir = false;
     }
 }
 
@@ -407,6 +482,16 @@ returning_state = function()
     }
 }
 
+damage_state = function(_kb = 5)
+{
+	//lock_dir
+	apply_speed();
+	if (kb_duration <= 0)
+	{
+		state = idle_state;
+	}
+}
+
 
 if (global.teleporting && instance_number(obj_teleporter2) == 0)
 {
@@ -421,6 +506,5 @@ if (global.transicao == true)
 		_transicao2 = layer_sequence_create("sq_transicao", 0, 0, sq_transition2);
 	}
 }
-
 
 state = idle_state;

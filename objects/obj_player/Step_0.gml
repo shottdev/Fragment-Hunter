@@ -6,22 +6,29 @@ input();
 ground_check();
 move();
 state();
+counter_colorise();
 
-    
-switch (sign(velh))
+adjust_sq();
+
+if (!lock_dir)
 {
-    case -1:
-    {
-        dash_dir = -1;
-        orb_dir = 180
-    }
-        break;
-    case 1:
-    {
-        dash_dir = 1;
-        orb_dir = 0;
-    }
-        break;
+	switch (sign(velh))
+	{
+	    case -1:
+	    {
+	        dash_dir = -1;
+	        orb_dir = 180;
+			dir = -1;
+	    }
+	        break;
+	    case 1:
+	    {
+	        dash_dir = 1;
+	        orb_dir = 0;
+			dir = 1;
+	    }
+	        break;
+	}
 }
 
 if (dash_duration > 0)
@@ -33,7 +40,8 @@ if (dash_duration > 0)
         var _phantom = instance_create_layer(x, y, "player", obj_player_afterimage);
         _phantom.sprite_index = sprite_index;
         _phantom.image_index = image_index;
-        _phantom.image_xscale = image_xscale;
+        _phantom.image_xscale = sq_xscale * dir;
+		//_phantom.image_yscale = sq_yscale;
         timer_afterimage = 0;
     }
 }

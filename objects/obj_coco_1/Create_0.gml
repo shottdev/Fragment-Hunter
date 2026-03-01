@@ -2,6 +2,9 @@
 // Você pode escrever seu código neste editor
 
 
+start_sq();
+start_colorise();
+
 vel = 0.4;
 velh = 0;
 velv = 0;
@@ -13,6 +16,10 @@ delay_idle = 60;
 
 timer_walk = 0;
 delay_walk = 60;
+dir = 1;
+inv = false;
+hp = 5;
+diff_dir = false;
 
 timer_shoot = 0;
 delay_shoot = 60;
@@ -31,8 +38,9 @@ control_state = function()
 	{
 		case "idle":
 		{
+			swap_sprite(spr_coco_1);
 			velh = 0;
-			velv = 0;
+			//velv = 0;
 			
 			timer_idle++;
 			
@@ -44,7 +52,7 @@ control_state = function()
 				delay_idle = random_range(60, 120);
 			}
 			
-			if (_dist < 30)
+			if (_dist < 60)
 			{
 				state = "shoot";
 			}
@@ -52,33 +60,29 @@ control_state = function()
 		break;
 		case "walk":
 		{
+			swap_sprite(spr_coco_1_walk);
 			rigth = 1;
 			left = -1;
-			
-			if (ground)
-			{
-				velv = 0;
-			}
-			else
-			{
-				velv += 0.2;
-			}
 			
 			if (place_meeting(x + velh, y, tile))
 			{
 				velh = -velh;
 			}
 			
-			if (velh > 0)
+			if (velh != 0)
 			{
-				if (!place_meeting((x + sprite_width) + velh, y + 1, tile))
+				var _check_x = function()
 				{
-					velh = -velh;
+					if (velh > 0)
+					{
+						return bbox_right + 1;
+					}
+					else
+					{
+						return bbox_left - 1;
+					}
 				}
-			}
-			else
-			{
-				if (!place_meeting((x + sprite_width) - velh, y + 1, tile))
+				if (!place_meeting(_check_x(), y + 1, tile))
 				{
 					velh = -velh;
 				}
@@ -92,43 +96,69 @@ control_state = function()
 				state = "idle";
 			}
 			
-			if (_dist < 30)
+			if (_dist < 60)
 			{
 				state = "shoot";
-			}
-			
-			if (velh != 0)
-			{
-				image_xscale = sign(velh);
 			}
 		}
 		break;
 		case "shoot":
 		{
+			diff_dir = true;
+			swap_sprite(spr_coco_1_shoot);
 			velh = 0;
-			velv = 0;
+			//velv = 0;
+			
+			
 			
 			if (instance_exists(obj_player))
 			{
-				timer_shoot++
+				dir = sign(obj_player.x - x);
 				
-				if (timer_shoot > delay_shoot)
+				if (image_index >= image_number - 1)
 				{
 					var _dardo = instance_create_layer(x, y - 8, "items", obj_dardo);
 					var _dir = point_direction(x, y, obj_player.x, obj_player.y);
 					_dardo.direction = _dir;
 					_dardo.speed = 4;
 					_dardo.image_angle = _dir;
-					timer_shoot = 0;
-				}
-				
-				
-				if (_dist > 50)
-				{
 					state = "idle";
+					diff_dir = false;
 				}
 			}
 			
+		}
+		break;
+		case "damage":
+		{
+			if (!inv)
+			{
+				inv = true;
+				timer_colorise(5);
+				use_sq(1.5, 0.5);
+			}
+		}
+	}
+}
+
+swap_direction = function()
+{
+	if (!diff_dir)
+	{
+		if (velh != 0)
+		{
+			switch (sign(velh))
+			{
+				case 1:
+				{
+					dir = 1;
+				}
+				break;
+				case -1:
+				{
+					dir = -1;
+				}
+			}
 		}
 	}
 }

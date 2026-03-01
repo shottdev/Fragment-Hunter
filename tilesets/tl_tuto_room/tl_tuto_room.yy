@@ -23,8 +23,8 @@
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
   "spriteId":{
-    "name":"spr_tileset_tuto_room",
-    "path":"sprites/spr_tileset_tuto_room/spr_tileset_tuto_room.yy",
+    "name":"spr_tileset_tuto_room_outline",
+    "path":"sprites/spr_tileset_tuto_room_outline/spr_tileset_tuto_room_outline.yy",
   },
   "spriteNoExport":false,
   "textureGroupId":{

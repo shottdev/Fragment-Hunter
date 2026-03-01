@@ -35,3 +35,8 @@ function simple_sq()
 	image_xscale = sq_xscale;
 	image_yscale = sq_yscale;
 }
+
+function draw_squash_effect()
+{
+	draw_sprite_ext(sprite_index, image_index, x, y, sq_xscale * dir, sq_yscale, image_angle, image_blend, image_alpha);
+}
