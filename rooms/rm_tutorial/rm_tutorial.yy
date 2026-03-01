@@ -1,27 +1,27 @@
 {
   "$GMRoom":"v1",
-  "%Name":"rm_fase_teste",
+  "%Name":"rm_tutorial",
   "creationCodeFile":"",
   "inheritCode":false,
   "inheritCreationOrder":false,
   "inheritLayers":false,
   "instanceCreationOrder":[
-    {"name":"inst_5F853A90_1_1_1","path":"rooms/rm_fase_teste/rm_fase_teste.yy",},
-    {"name":"inst_2A28E95B1_1","path":"rooms/rm_fase_teste/rm_fase_teste.yy",},
-    {"name":"inst_247E8CA9","path":"rooms/rm_fase_teste/rm_fase_teste.yy",},
-    {"name":"inst_D1B0F8B","path":"rooms/rm_fase_teste/rm_fase_teste.yy",},
-    {"name":"inst_31BE61B6","path":"rooms/rm_fase_teste/rm_fase_teste.yy",},
-    {"name":"inst_6024E74","path":"rooms/rm_fase_teste/rm_fase_teste.yy",},
-    {"name":"inst_7A49CBFB","path":"rooms/rm_fase_teste/rm_fase_teste.yy",},
-    {"name":"inst_7A26C053","path":"rooms/rm_fase_teste/rm_fase_teste.yy",},
-    {"name":"inst_A711296","path":"rooms/rm_fase_teste/rm_fase_teste.yy",},
+    {"name":"inst_5F853A90_1_1_1","path":"rooms/rm_tutorial/rm_tutorial.yy",},
+    {"name":"inst_2A28E95B1_1","path":"rooms/rm_tutorial/rm_tutorial.yy",},
+    {"name":"inst_247E8CA9","path":"rooms/rm_tutorial/rm_tutorial.yy",},
+    {"name":"inst_D1B0F8B","path":"rooms/rm_tutorial/rm_tutorial.yy",},
+    {"name":"inst_31BE61B6","path":"rooms/rm_tutorial/rm_tutorial.yy",},
+    {"name":"inst_6024E74","path":"rooms/rm_tutorial/rm_tutorial.yy",},
+    {"name":"inst_7A49CBFB","path":"rooms/rm_tutorial/rm_tutorial.yy",},
+    {"name":"inst_7A26C053","path":"rooms/rm_tutorial/rm_tutorial.yy",},
+    {"name":"inst_A711296","path":"rooms/rm_tutorial/rm_tutorial.yy",},
   ],
   "isDnd":false,
   "layers":[
     {"$GMRAssetLayer":"","%Name":"sq_transicao","assets":[],"depth":0,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"sq_transicao","properties":[],"resourceType":"GMRAssetLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"teleporter","depth":100,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v4","%Name":"inst_6024E74","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6024E74","objectId":{"name":"obj_teleporter1","path":"objects/obj_teleporter1/obj_teleporter1.yy",},"properties":[
-            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_teleporter1","path":"objects/obj_teleporter1/obj_teleporter1.yy",},"propertyId":{"name":"destino","path":"objects/obj_teleporter1/obj_teleporter1.yy",},"resource":{"name":"rm_fase_teste_2","path":"rooms/rm_fase_teste_2/rm_fase_teste_2.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"rm_fase_teste_2",},
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_teleporter1","path":"objects/obj_teleporter1/obj_teleporter1.yy",},"propertyId":{"name":"destino","path":"objects/obj_teleporter1/obj_teleporter1.yy",},"resource":{"name":"rm_game","path":"rooms/rm_game/rm_game.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"rm_game",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":976.0,"y":96.0,},
       ],"layers":[],"name":"teleporter","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"player","depth":200,"effectEnabled":true,"effectType":"none","gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
@@ -45,7 +45,8 @@
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_plate","path":"objects/obj_plate/obj_plate.yy",},"propertyId":{"name":"texto","path":"objects/obj_plate/obj_plate.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"O pulo duplo não vai ser o suficiente aqui. Tente SHIFT (ou o botão RB / R1 do controle)!",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":280.0,"y":64.0,},
       ],"layers":[],"name":"misc","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
-    {"$GMRTileLayer":"","%Name":"tl_ground","depth":600,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"tl_ground","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":10,"SerialiseWidth":63,"TileCompressedData":[
+    {"$GMRAssetLayer":"","%Name":"assets","assets":[],"depth":600,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"assets","properties":[],"resourceType":"GMRAssetLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
+    {"$GMRTileLayer":"","%Name":"tl_ground","depth":700,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"tl_ground","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":10,"SerialiseWidth":63,"TileCompressedData":[
           1,60,-3,72,3,61,37,60,-4,72,4,61,37,37,60,-4,72,1,61,-3,37,1,60,-11,72,3,61,37,60,-4,72,3,61,37,60,-4,
           72,1,61,-3,37,1,60,-4,72,1,61,-4,37,1,39,-3,-2147483648,3,36,60,73,-4,-2147483648,4,70,61,60,73,-4,-2147483648,
           1,70,-3,72,1,73,-11,-2147483648,3,70,72,73,-4,-2147483648,3,70,72,73,-4,-2147483648,5,70,61,37,60,73,
@@ -62,9 +63,9 @@
           1,77,-3,21,1,78,-3,37,11,77,21,21,78,37,77,21,22,-2147483648,-2147483648,36,-7,37,1,77,-7,21,1,78,-43,
           37,4,77,21,21,78,-6,37,
         ],"TileDataFormat":1,},"tilesetId":{"name":"tl_tuto_room","path":"tilesets/tl_tuto_room/tl_tuto_room.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
-    {"$GMRBackgroundLayer":"","%Name":"bg","animationFPS":15.0,"animationSpeedType":0,"colour":4281663521,"depth":700,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"bg","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
+    {"$GMRBackgroundLayer":"","%Name":"bg","animationFPS":30.0,"animationSpeedType":0,"colour":4294967295,"depth":800,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"bg","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],
-  "name":"rm_fase_teste",
+  "name":"rm_tutorial",
   "parent":{
     "name":"Rooms",
     "path":"folders/Rooms.yy",

@@ -351,7 +351,7 @@ fragment_pickup_state = function()
     if (_view_w <= 147 && !layer_sequence_exists("sq_transicao", seq_id))
     {
         seq_id = layer_sequence_create("sq_transicao", 0, 0, sq_transition1);
-        global.destino = rm_fase_teste;
+        global.destino = rm_tutorial;
 		global.transicao = true;
     }
 }
