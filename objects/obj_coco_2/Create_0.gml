@@ -108,7 +108,7 @@ control_state = function()
 				state = "idle";
 			}
 			
-			if (_dist < 60 && y == obj_player.y)
+			if (_dist < 60)
 			{
 				state = "prepare_attack";
 			}
@@ -121,18 +121,7 @@ control_state = function()
 			velh = 0;
 			//velv = 0;
 			
-			
-			
-			if (instance_exists(obj_player))
-			{
-				dir = sign(obj_player.x - x);
-				
-				if (image_index >= image_number - 1)
-				{
-					state = "attack";
-					diff_dir = false;
-				}
-			}
+			dir = sign(obj_player.x - x);
 			
 		}
 		break;

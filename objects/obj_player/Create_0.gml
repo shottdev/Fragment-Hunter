@@ -248,7 +248,7 @@ idle_state = function()
         state = prepare_attack_state;
     }
     
-    if (attack2 && global.fragmento && orb == true)
+    if (attack2 && global.fragmento02 && orb == true)
     {
         state = prepare_throw_state;
     }
@@ -338,7 +338,19 @@ fragment_pickup_state = function()
     var _view_w = camera_get_view_width(view_camera[0]);
     var _view_h = camera_get_view_height(view_camera[0]);
     
-    global.fragmento = true;
+    var _frag = instance_place(x, y, obj_fragmento);
+	switch(_frag.fragmento)
+	{
+		case 0:
+		{
+			global.fragmento = true;
+		}
+		break;
+		case 1:
+		{
+			global.fragmento02 = true;
+		}
+	}
     
     var _target_w = 145;
     var _target_h = 75;
