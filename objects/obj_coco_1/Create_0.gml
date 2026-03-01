@@ -31,6 +31,7 @@ control_state = function()
 	{
 		case "idle":
 		{
+			swap_sprite(spr_coco_1);
 			velh = 0;
 			velv = 0;
 			
@@ -52,6 +53,7 @@ control_state = function()
 		break;
 		case "walk":
 		{
+			swap_sprite(spr_coco_1_walk);
 			rigth = 1;
 			left = -1;
 			
@@ -105,27 +107,23 @@ control_state = function()
 		break;
 		case "shoot":
 		{
+			swap_sprite(spr_coco_1_shoot);
 			velh = 0;
 			velv = 0;
 			
+			
+			
 			if (instance_exists(obj_player))
 			{
-				timer_shoot++
+				image_xscale = sign(obj_player.x - x);
 				
-				if (timer_shoot > delay_shoot)
+				if (image_index >= image_number - 1)
 				{
 					var _dardo = instance_create_layer(x, y - 8, "items", obj_dardo);
 					var _dir = point_direction(x, y, obj_player.x, obj_player.y);
 					_dardo.direction = _dir;
 					_dardo.speed = 4;
 					_dardo.image_angle = _dir;
-					timer_shoot = 0;
-					state = "idle";
-				}
-				
-				
-				if (_dist > 50)
-				{
 					state = "idle";
 				}
 			}

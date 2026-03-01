@@ -2,6 +2,8 @@
 // Você pode escrever seu código neste editor
 
 
+start_sq();
+
 #region variáveis
 #region andar
 //velocidade horizontal
@@ -50,6 +52,10 @@ delay_dash = 20;
 
 can_dash = true;
 
+dir = 1;
+
+lock_dir = false;
+
 #endregion variáveis
 
 
@@ -61,6 +67,8 @@ input = function()
     dash = keyboard_check_pressed(vk_shift) or keyboard_check_pressed(ord("C")) or gamepad_button_check_pressed(global.gamepad_id, gp_shoulderrb);
     attack = mouse_check_button_pressed(mb_left) or keyboard_check_pressed(ord("Z")) or gamepad_button_check_pressed(global.gamepad_id, gp_face3);
     attack2 = mouse_check_button_pressed(mb_right) or keyboard_check_pressed(ord("X")) or gamepad_button_check_pressed(global.gamepad_id, gp_face2);
+	attack2_down = mouse_check_button(mb_right) or keyboard_check(ord("X")) or gamepad_button_check(global.gamepad_id, gp_face2);
+	attack2_release = mouse_check_button_released(mb_right) or keyboard_check_released(ord("X")) or gamepad_button_check_released(global.gamepad_id, gp_face2);
     
 }
 
@@ -69,6 +77,16 @@ ground_check = function()
     //ground = place_meeting(x, y + 1, obj_collider);
     tile = layer_tilemap_get_id("tl_ground");
     ground = place_meeting(x, y + 1, tile);
+}
+
+swap_direction = function()
+{
+	//nao faz mais nada
+	if (!lock_dir)
+	{
+		if (right) dir = 1;
+		if (left) dir = -1;
+	}
 }
 
 move = function()
@@ -154,11 +172,6 @@ apply_speed = function()
         
 }
 
-swap_direction = function()
-{
-    if (velh != 0) image_xscale = sign(velh);
-}
-
 
 idle_state = function()
 {
@@ -172,7 +185,9 @@ idle_state = function()
     
     if (jump)
     {
+		instance_create_depth(x, y + 3, depth - 1, obj_pulo_particula);
         state = jump_state;
+		use_sq(0.6, 1.4);
     }
     
     if (!ground)
@@ -180,9 +195,10 @@ idle_state = function()
         state = jump_state;
     }
     
-    if (dash)
+    if (dash && !can_dash)
     {
         state = dash_state;
+		use_sq(1.4, 0.6);
     }
     
     if (attack && global.fragmento && orb == true)
@@ -214,12 +230,15 @@ move_state = function()
     
     if (jump)
     {
+		instance_create_depth(x, y + 3, depth - 1, obj_pulo_particula);
         state = jump_state;
+		use_sq(0.6, 1.4);
     }
     
-    if (dash)
+    if (dash && !can_dash)
     {
         state = dash_state;
+		use_sq(1.4, 0.6);
     }
     
     if (!ground)
@@ -244,12 +263,20 @@ jump_state = function()
     if (ground)
     {
         state = idle_state;
+		use_sq(1.5, 0.5);
+		instance_create_depth(x, y, depth - 1, obj_pouso_particula);
     }
     
-    if (dash)
+    if (dash && !can_dash)
     {
         state = dash_state;
+		use_sq(1.4, 0.6);
     }
+	
+	if (jump && jump_counter < 2)
+	{
+		use_sq(0.5, 1.5);
+	}
 }
 
 dash_state = function()
@@ -293,14 +320,12 @@ prepare_throw_state = function()
     
     if (image_index >= image_number - 1)
     {
-        var _input1 = mb_right;
-        var _input2 = ord("X");
-        if (mouse_check_button(_input1) or keyboard_check(_input2))
+        if (attack2_down)
         {
             image_index = image_number - 1;
             throw_force += 0.1;
             
-            if (mouse_check_button_released(_input1) or keyboard_check_released(_input2))
+            if (attack2_release)
             {
                 state = throw_state;
             }
@@ -334,6 +359,7 @@ throw_state = function()
 
 prepare_attack_state = function()
 {
+	lock_dir = true;
     swap_sprite(spr_player_throw1);
     
     if (image_index >= image_number - 1)
@@ -344,13 +370,14 @@ prepare_attack_state = function()
 
 attack_state = function()
 {
+	swap_direction();
     swap_sprite(spr_player_attack);
-    
+	
     if (image_index >= 3)
     {
         if (hitbox == noone)
         {
-            switch (image_xscale)
+            switch (dir)
             {
                 case 1:
                 {
@@ -382,6 +409,7 @@ attack_state = function()
             hitbox = noone;
         }
         state = idle_state;
+		lock_dir = false;
     }
 }
 
