@@ -2,4 +2,11 @@
 // Você pode escrever seu código neste editor
 
 
-other.kb_duration = 5;
+if (other.dash_duration == 0)
+{
+	other.kb_duration = 5;
+	other.damage_dir = (x - other.x);
+	other.hurt();
+}
+
+state = damage;

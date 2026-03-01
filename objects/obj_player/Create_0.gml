@@ -3,6 +3,7 @@
 
 
 start_sq();
+start_colorise();
 
 #region variáveis
 #region andar
@@ -33,7 +34,7 @@ dash_speed = 5;
 
 //timer do afterimage
 timer_afterimage = 0;
-//delay afterimage
+//delay do afterimage
 delay_afterimage = 2;
 
 //contador de dash
@@ -55,12 +56,14 @@ can_dash = true;
 dir = 1;
 
 lock_dir = false;
+damage_dir = noone;
 
 #endregion variáveis
 
 
 input = function()
 {
+	//pegando todos os inputs com teclado, mouse ou controle
     right = keyboard_check(vk_right) or keyboard_check(ord("D")) or gamepad_axis_value(global.gamepad_id, gp_axislh) > 0.25 or gamepad_button_check(global.gamepad_id, gp_padr);
     left = keyboard_check(vk_left) or keyboard_check(ord("A")) or gamepad_axis_value(global.gamepad_id, gp_axislh) < -0.25 or gamepad_button_check(global.gamepad_id, gp_padl);
     jump = keyboard_check_pressed(vk_space) or gamepad_button_check_pressed(global.gamepad_id, gp_face1);
@@ -72,6 +75,7 @@ input = function()
     
 }
 
+//checando se estou no chao
 ground_check = function()
 {
     //ground = place_meeting(x, y + 1, obj_collider);
@@ -79,6 +83,7 @@ ground_check = function()
     ground = place_meeting(x, y + 1, tile);
 }
 
+//trocando a direcao
 swap_direction = function()
 {
 	//nao faz mais nada
@@ -89,14 +94,22 @@ swap_direction = function()
 	}
 }
 
+//método de movimento
 move = function()
 {
+	//aplicando os inputs no velh
     velh = (right - left) * max_velh;
     
+	//se estou no chao
     if (ground)
     {
+		//meu contador de pulos volta a ser zero
         jump_counter = 0;
+		
+		//zero meu velv
         velv = 0;
+		
+		//arredondando o y
         y = round(y);
         
         if (jump)
@@ -164,16 +177,11 @@ move = function()
         velh = 0;
     }
 	
-	if (keyboard_check(vk_enter))
-	{
-		kb_duration = 5;
-	}
-	
 	if (kb_duration > 0)
 	{
 		lock_dir = true;
 		kb_duration--;
-		var _vel = 2 * -dash_dir;
+		var _vel = 0.6 * -damage_dir;
 		
 		if (!place_meeting(x + _vel, y, tile))
         {
@@ -198,6 +206,13 @@ apply_speed = function()
         
 }
 
+hurt = function()
+{
+	state = damage_state;
+	timer_colorise(3);
+	use_sq(1.4, 0.6);
+}
+
 
 idle_state = function()
 {
@@ -214,6 +229,7 @@ idle_state = function()
 		instance_create_depth(x, y + 3, depth - 1, obj_pulo_particula);
         state = jump_state;
 		use_sq(0.6, 1.4);
+		pitch(Salto, 0.8, 1.2);
     }
     
     if (!ground)
@@ -241,11 +257,6 @@ idle_state = function()
     {
         state = returning_state;
     }
-	
-	if (kb_duration > 0)
-	{
-		state = damage_state;
-	}
 }
 
 move_state = function()
@@ -276,11 +287,6 @@ move_state = function()
     {
         state = jump_state;
     }
-	
-	if (kb_duration > 0)
-	{
-		state = damage_state;
-	}
 }
 
 jump_state = function()
@@ -313,11 +319,6 @@ jump_state = function()
 	{
 		use_sq(0.5, 1.5);
 	}
-	
-	if (kb_duration > 0)
-	{
-		state = damage_state;
-	}
 }
 
 dash_state = function()
@@ -330,11 +331,6 @@ dash_state = function()
     {
         state = idle_state;
     }
-	
-	if (kb_duration > 0)
-	{
-		state = damage_state;
-	}
 }
 
 fragment_pickup_state = function()
@@ -510,6 +506,5 @@ if (global.transicao == true)
 		_transicao2 = layer_sequence_create("sq_transicao", 0, 0, sq_transition2);
 	}
 }
-
 
 state = idle_state;

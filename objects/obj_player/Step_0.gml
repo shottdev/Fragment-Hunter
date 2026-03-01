@@ -6,6 +6,7 @@ input();
 ground_check();
 move();
 state();
+counter_colorise();
 
 adjust_sq();
 

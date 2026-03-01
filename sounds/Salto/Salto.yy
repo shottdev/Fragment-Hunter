@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"Sound1",
+  "%Name":"Salto",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":109.71417,
+  "duration":0.5273016,
   "exportDir":"",
-  "name":"Sound1",
+  "name":"Salto",
   "parent":{
     "name":"Sounds",
     "path":"folders/Sounds.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"Sound1.mp3",
-  "volume":1.0,
+  "soundFile":"Salto.mp3",
+  "volume":0.68,
 }

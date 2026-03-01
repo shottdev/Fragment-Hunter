@@ -19,6 +19,7 @@
   "height":240,
   "HTile":false,
   "layers":[
+    {"$GMImageLayer":"","%Name":"7e9e25b2-40ff-402f-92c9-462ec442601d","blendMode":3,"displayName":"Layer 1","isLocked":false,"name":"7e9e25b2-40ff-402f-92c9-462ec442601d","opacity":22.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"eb04a922-7aa8-4cf8-9af0-c74ee347fbb0","blendMode":0,"displayName":"default","isLocked":false,"name":"eb04a922-7aa8-4cf8-9af0-c74ee347fbb0","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_tileset2",

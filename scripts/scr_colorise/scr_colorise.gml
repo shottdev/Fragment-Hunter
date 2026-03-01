@@ -5,6 +5,8 @@
 	
 	Nota: nem tudo aqui é exatamente modificável só usando funcoes, caso seja necessária uma cor diferente, mexa no sh_cor
 	por padrao a cor é branca.
+	
+	Feito por shott.dev
 
 */
 

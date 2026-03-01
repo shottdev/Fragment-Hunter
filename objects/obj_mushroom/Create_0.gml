@@ -49,22 +49,22 @@ damage = function()
     {
         timer_colorise(5);
         inv = true;
+		
+		if (hp == 1)
+		{
+			instance_destroy();
+		}
+		else
+		{
+			hp--;
+		}
     }
     
     var _target_xscale = 1.4 * sign(velh);
     var _target_yscale = 0.6;
     use_sq(_target_xscale, _target_yscale);
     //hp--;
-    
-	if (hp == 1)
-	{
-		instance_destroy();
-	}
-	else
-	{
-		hp--;
-	}
-    
+	
     state = normal;
 }
 
