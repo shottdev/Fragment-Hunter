@@ -45,7 +45,7 @@ throw_force = 3;
 orb = true;
 orb_dir = 0;
 hitbox = noone;
-kb_duration = 10;
+kb_duration = 0;
 
 dash_timer = 0;
 delay_dash = 20;
@@ -163,6 +163,32 @@ move = function()
     {
         velh = 0;
     }
+	
+	if (keyboard_check(vk_enter))
+	{
+		kb_duration = 5;
+	}
+	
+	if (kb_duration > 0)
+	{
+		lock_dir = true;
+		kb_duration--;
+		var _vel = 2 * -dash_dir;
+		
+		if (!place_meeting(x + _vel, y, tile))
+        {
+            velh = _vel;
+        }
+        else {
+        	velh = 0;
+            kb_duration = 0;
+        }
+		
+		if (kb_duration <= 0)
+		{
+			lock_dir = false;
+		}
+	}
 }
 
 apply_speed = function()
@@ -215,6 +241,11 @@ idle_state = function()
     {
         state = returning_state;
     }
+	
+	if (kb_duration > 0)
+	{
+		state = damage_state;
+	}
 }
 
 move_state = function()
@@ -245,6 +276,11 @@ move_state = function()
     {
         state = jump_state;
     }
+	
+	if (kb_duration > 0)
+	{
+		state = damage_state;
+	}
 }
 
 jump_state = function()
@@ -277,6 +313,11 @@ jump_state = function()
 	{
 		use_sq(0.5, 1.5);
 	}
+	
+	if (kb_duration > 0)
+	{
+		state = damage_state;
+	}
 }
 
 dash_state = function()
@@ -289,6 +330,11 @@ dash_state = function()
     {
         state = idle_state;
     }
+	
+	if (kb_duration > 0)
+	{
+		state = damage_state;
+	}
 }
 
 fragment_pickup_state = function()
@@ -318,6 +364,11 @@ prepare_throw_state = function()
 {
     swap_sprite(spr_player_throw1);
     
+	if (kb_duration > 0)
+	{
+		state = damage_state;
+	}
+	
     if (image_index >= image_number - 1)
     {
         if (attack2_down)
@@ -433,6 +484,16 @@ returning_state = function()
         state = idle_state;
         global.teleporting = false;
     }
+}
+
+damage_state = function(_kb = 5)
+{
+	//lock_dir
+	apply_speed();
+	if (kb_duration <= 0)
+	{
+		state = idle_state;
+	}
 }
 
 

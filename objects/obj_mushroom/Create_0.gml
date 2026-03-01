@@ -54,8 +54,16 @@ damage = function()
     var _target_xscale = 1.4 * sign(velh);
     var _target_yscale = 0.6;
     use_sq(_target_xscale, _target_yscale);
-    hp--;
+    //hp--;
     
+	if (hp == 1)
+	{
+		instance_destroy();
+	}
+	else
+	{
+		hp--;
+	}
     
     state = normal;
 }
