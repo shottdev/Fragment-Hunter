@@ -62,7 +62,7 @@ inv_delay = game_get_speed(gamespeed_fps) / 2;
 lock_dir = false;
 damage_dir = noone;
 
-hp = 10;
+hp = 8;
 
 #endregion variáveis
 
@@ -216,11 +216,19 @@ hurt = function()
 {
 	if (!inv)
 	{
-		hp--;
+		if (hp > 1)
+		{
+			hp--;
+		}
+		else
+		{
+			room_restart();
+		}
 		state = damage_state;
 		timer_colorise(3);
 		use_sq(1.4, 0.6);
 		inv = true;
+		pitch(Dano, 0.8, 1.2);
 	}
 }
 
@@ -240,7 +248,7 @@ idle_state = function()
 		instance_create_depth(x, y + 3, depth - 1, obj_pulo_particula);
         state = jump_state;
 		use_sq(0.6, 1.4);
-		pitch(snd_sound, 0.8, 1.2);
+		pitch(snd_salto, 0.8, 1.2);
     }
     
     if (!ground)
@@ -297,7 +305,7 @@ move_state = function()
 		instance_create_depth(x, y + 3, depth - 1, obj_pulo_particula);
         state = jump_state;
 		use_sq(0.6, 1.4);
-		pitch(snd_sound, 0.8, 1.2);
+		pitch(snd_salto, 0.8, 1.2);
     }
     
     if (dash && !can_dash)
@@ -425,6 +433,7 @@ throw_state = function()
     
     if (image_index >= 4)
     {
+		pitch(Atk_Tiro, 0.8, 1.2);
         var _orb = instance_create_layer(x, y - 8, "items", obj_orbe_da_avareza);
         _orb.speed = throw_force;
         _orb.direction = orb_dir;
@@ -448,11 +457,13 @@ prepare_attack_state = function()
     if (image_index >= image_number - 1)
     {
         state = attack_state;
+		pitch(Atk_Melle, 0.8, 1.2);
     }
 }
 
 attack_state = function()
 {
+	lock_dir = true;
 	swap_direction();
     swap_sprite(spr_player_attack);
 	

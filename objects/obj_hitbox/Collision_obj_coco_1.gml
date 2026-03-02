@@ -4,6 +4,6 @@
 
 if (!other.inv)
 {
-	other.state = other.damage;
+	state = "damage";
 	instance_destroy();
 }

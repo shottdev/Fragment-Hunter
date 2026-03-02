@@ -139,6 +139,15 @@ control_state = function()
 				timer_colorise(5);
 				use_sq(1.5, 0.5);
 				state = "idle";
+				
+				if (hp > 1)
+				{
+					hp--;
+				}
+				else
+				{
+					instance_destroy();
+				}
 			}
 		}
 	}
