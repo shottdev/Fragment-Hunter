@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"Atk_Tiro",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":1.0060318,
+  "exportDir":"",
+  "name":"Atk_Tiro",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"Atk_Tiro.mp3",
+  "volume":0.61,
+}

@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"snd_sound",
+  "%Name":"Tela_3_Cogumelo_NOVA_MIX",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.5273016,
+  "duration":133.07678,
   "exportDir":"",
-  "name":"snd_sound",
+  "name":"Tela_3_Cogumelo_NOVA_MIX",
   "parent":{
     "name":"Sounds",
     "path":"folders/Sounds.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_sound.mp3",
-  "volume":0.68,
+  "soundFile":"Tela_3_Cogumelo_NOVA_MIX.mp3",
+  "volume":0.55,
 }
