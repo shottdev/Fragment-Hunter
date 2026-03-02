@@ -62,7 +62,7 @@ inv_delay = game_get_speed(gamespeed_fps) / 2;
 lock_dir = false;
 damage_dir = noone;
 
-hp = 10;
+hp = 8;
 
 #endregion variáveis
 
@@ -216,7 +216,14 @@ hurt = function()
 {
 	if (!inv)
 	{
-		hp--;
+		if (hp > 1)
+		{
+			hp--;
+		}
+		else
+		{
+			room_restart();
+		}
 		state = damage_state;
 		timer_colorise(3);
 		use_sq(1.4, 0.6);
@@ -453,6 +460,7 @@ prepare_attack_state = function()
 
 attack_state = function()
 {
+	lock_dir = true;
 	swap_direction();
     swap_sprite(spr_player_attack);
 	

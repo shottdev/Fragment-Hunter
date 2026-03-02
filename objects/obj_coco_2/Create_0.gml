@@ -45,7 +45,7 @@ control_state = function()
 		{
 			swap_sprite(spr_coco_2);
 			velh = 0;
-			velv = 0;
+			//velv = 0;
 			
 			timer_idle++;
 			
@@ -68,15 +68,6 @@ control_state = function()
 			swap_sprite(spr_coco_2_prepara_chifrada);
 			rigth = 1;
 			left = -1;
-			
-			if (ground)
-			{
-				velv = 0;
-			}
-			else
-			{
-				velv += 0.2;
-			}
 			
 			if (place_meeting(x + velh, y, tile))
 			{

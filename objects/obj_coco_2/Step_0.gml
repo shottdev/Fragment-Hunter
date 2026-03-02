@@ -22,3 +22,12 @@ if (inv)
 		inv = false;
 	}
 }
+
+if (ground)
+{
+	velv = 0;
+}
+else
+{
+	velv += 0.2;
+}
