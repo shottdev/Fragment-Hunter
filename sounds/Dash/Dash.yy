@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"Tela_2_Cogumelo",
+  "%Name":"Dash",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":109.71417,
+  "duration":0.5273016,
   "exportDir":"",
-  "name":"Tela_2_Cogumelo",
+  "name":"Dash",
   "parent":{
     "name":"Sounds",
     "path":"folders/Sounds.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"Tela_2_Cogumelo.mp3",
-  "volume":0.4,
+  "soundFile":"Dash.mp3",
+  "volume":0.89,
 }

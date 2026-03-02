@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"Tela_2_Cogumelo",
+  "%Name":"Transi__o1Mapa",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":109.71417,
+  "duration":2.0256915,
   "exportDir":"",
-  "name":"Tela_2_Cogumelo",
+  "name":"Transi__o1Mapa",
   "parent":{
     "name":"Sounds",
     "path":"folders/Sounds.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"Tela_2_Cogumelo.mp3",
-  "volume":0.4,
+  "soundFile":"Transi__o1Mapa.mp3",
+  "volume":0.61,
 }

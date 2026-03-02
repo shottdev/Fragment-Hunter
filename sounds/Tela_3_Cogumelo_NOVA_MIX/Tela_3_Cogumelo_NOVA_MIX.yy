@@ -22,5 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"Tela_3_Cogumelo_NOVA_MIX.mp3",
-  "volume":0.55,
+  "volume":0.4,
 }
