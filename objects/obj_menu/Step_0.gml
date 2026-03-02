@@ -2,9 +2,9 @@
 // Você pode escrever seu código neste editor
 
 
-var _up = keyboard_check_pressed(vk_up);
-var _down = keyboard_check_pressed(vk_down);
-var _accept = keyboard_check_pressed(vk_enter);
+var _up = keyboard_check_pressed(vk_up) or gamepad_axis_value(global.gamepad_id, gp_axislv) < -0.25;
+var _down = keyboard_check_pressed(vk_down) or gamepad_axis_value(global.gamepad_id, gp_axislv) > 0.25;
+var _accept = keyboard_check_pressed(vk_enter) or gamepad_button_check_pressed(global.gamepad_id, gp_face1);
 
 if (_up && index > 0)
 {

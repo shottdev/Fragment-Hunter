@@ -260,6 +260,7 @@ idle_state = function()
     {
         state = dash_state;
 		use_sq(1.4, 0.6);
+		pitch(Dash, 0.8, 1.2);
     }
     
     if (attack && global.fragmento && orb == true)
@@ -312,6 +313,7 @@ move_state = function()
     {
         state = dash_state;
 		use_sq(1.4, 0.6);
+		pitch(Dash, 0.8, 1.2);
     }
     
     if (!ground)
@@ -344,6 +346,7 @@ jump_state = function()
     {
         state = dash_state;
 		use_sq(1.4, 0.6);
+		pitch(Dash, 0.8, 1.2);
     }
 	
 	if (jump && jump_counter < 2)
@@ -515,6 +518,7 @@ falling_state = function()
     if (image_index >= image_number - 1)
     {
         room_goto(global.tp_destiny);
+		pitch(CanoMario, 0.8, 1.2);
     }
 }
 

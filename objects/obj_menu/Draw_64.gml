@@ -9,7 +9,7 @@ for (var i = 0; i <= array_length(menu) - 1; i++)
 	
 	if (index == i)
 	{
-		_cor = c_red;
+		_cor = c_aqua;
 		_marg = margem;
 	}
 	

@@ -12,6 +12,7 @@ global.fragmento02 = false;
 function goto_destiny()
 {
     room_goto(global.destino);
+	pitch(Transi__o1Mapa, 0.8, 1.2);
 }
 
 function final_transicao()
